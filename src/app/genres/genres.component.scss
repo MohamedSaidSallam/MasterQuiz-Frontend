@@ -1,0 +1,21 @@
+@import "../../styles.scss";
+
+h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+.grid-item {
+  cursor: pointer;
+  background: color(accent);
+  padding: 1em;
+  &:hover {
+    background: darken($color: color(accent), $amount: 20%);
+  }
+}
