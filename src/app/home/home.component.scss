@@ -1,0 +1,28 @@
+@import "../../styles.scss";
+
+.home-container {
+  width: 80%;
+  margin: 0 auto;
+}
+h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 5rem;
+}
+.subsection {
+  margin-left: 1em;
+
+  p {
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  button {
+      background-color: color(accent);
+      border: none;
+      padding: 1em;
+      font-size: 1rem;
+      font-weight: 600;
+    //   font: "Roboto", sans-serif;
+  }
+}
