@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+$colors: (
+  primary: rgba(94, 76, 138, 1),
+  primary-light: lighten(rgba(94, 76, 138, 1), 40%),
+  primary-dark: darken(rgba(94, 76, 138, 1), 10%),
+  accent: rgba(209, 204, 220, 1),
+  red: rgba(232, 72, 85, 1),
+  green: rgba(107, 139, 45, 1),
+  blue: rgba(65, 211, 189, 1),
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  background: color(primary);
+}
+

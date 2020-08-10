@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MasterQuiz"
+    }
+  },
+  "defaultProject": "MasterQuiz",
+  "cli": {
+    "analytics": "ff59afd2-dc48-49b9-8767-314067ccc073"
+  }
 }

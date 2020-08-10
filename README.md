@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+https://coolors.co/5e4c8a-41d3bd-e84855-6b8b2d-d1ccdc
+
+https://fonts.google.com/specimen/Roboto
+https://fonts.google.com/specimen/Roboto+Mono
+
+https://github.com/google/material-design-icons/blob/master/action/ios/ic_search_white_72pt.imageset/ic_search_white_72pt_3x.png
+
+https://github.com/FortAwesome/Font-Awesome/blob/master/svgs/solid/user-circle.svg

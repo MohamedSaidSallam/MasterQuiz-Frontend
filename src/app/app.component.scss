@@ -1,0 +1,84 @@
+@import "../styles.scss";
+
+$highlight: darken(
+  $color: color(primary-dark),
+  $amount: 10%,
+);
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+header {
+  background: color(primary-dark);
+  padding: 0em 0;
+
+  .header-items {
+    display: flex;
+    align-items: center;
+  }
+
+  nav {
+    float: right;
+    flex: 1;
+    margin: 0 0.5em;
+    // text-align: right;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      display: flex;
+      li a {
+        padding: 1em;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+
+        &:hover {
+          background: $highlight;
+        }
+      }
+    }
+  }
+}
+
+.logo {
+  img {
+    width: 3em;
+    cursor: pointer;
+  }
+  a {
+    color: white;
+    font-weight: 900;
+    font-size: 2.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+.searchBar {
+  background-color: $highlight;
+  padding: 0.75em 1em;
+  margin: 0 1em;
+  .searchbar-icon {
+    width: 2em;
+    float: right;
+  }
+  .searchbar-text {
+    font-style: italic;
+    font-weight: 300;
+    color: white;
+  }
+}
+
+.account-icon-section {
+  color: white;
+  padding: 0.25em;
+  font-size: 1rem;
+  .account-icon {
+    width: 2.5em;
+  }
+  &:hover {
+    background-color: $highlight;
+  }
+}
