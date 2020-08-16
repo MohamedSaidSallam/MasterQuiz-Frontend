@@ -1,28 +1,44 @@
-<header>
-  <div class="container">
-    <div class="header-items">
-      <div class="logo">
-        <img src="../assets/LogoPlaceholder.png" alt="Logo ">
-        <a href="#" routerLink='/'> Master Quiz</a>
-      </div>
-      <div class="searchBar">
-        <span class="searchbar-text"> want something specific ?</span>
-        <img class="searchbar-icon" src="../assets/ic_search_white_72pt_3x.png" alt="Searchbar Icon">
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#" routerLink='/popular'> Popular</a></li>
-          <li><a href="#" routerLink='/genres'> Genres</a></li>
-        </ul>
-      </nav>
-      <div class="account-icon-section">
-        <img class="account-icon" src="../assets/user-circle.svg" alt="Account Icon">
-        <br> Guest
+<div class="main-wrapper">
+
+  <header>
+    <div class="container">
+      <div class="header-items">
+        <div class="logo">
+          <img src="../assets/LogoPlaceholder.png" alt="Logo ">
+          <a href="#" routerLink='/'> Master Quiz</a>
+        </div>
+        <div class="searchBar">
+          <span class="searchbar-text"> want something specific ?</span>
+          <img class="searchbar-icon" src="../assets/ic_search_white_72pt_3x.png" alt="Searchbar Icon">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#" routerLink='/popular'> Popular</a></li>
+            <li><a href="#" routerLink='/genres'> Genres</a></li>
+          </ul>
+        </nav>
+        <div class="account-icon-section">
+          <img class="account-icon" src="../assets/user-circle.svg" alt="Account Icon">
+          <br> Guest
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<div class="container">
-  <router-outlet></router-outlet>
+  <div class="main-content">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <footer>
+    <p class="made-by">
+      Made by Ramez Noshy & Mohamed Said Sallam
+    </p>
+    <p class="source-link">
+      Check out the <a href="" target="_blank"> source code<img src="../assets/GitHub-Mark-Light-32px.png"
+          alt="GithubIcon"></a>
+    </p>
+  </footer>
+
 </div>
