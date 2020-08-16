@@ -11,6 +11,7 @@
   background: color(accent);
   padding: 1em;
   &:hover {
-    background: darken($color: color(accent), $amount: 20%);
+    // background: darken($color: color(accent), $amount: 20%);
+    border-left: color(blue) 0.5em solid;
   }
 }
