@@ -1,0 +1,40 @@
+@import "../../styles.scss";
+
+h1 {
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin: 1em auto;
+}
+.card {
+  color: white;
+  cursor: pointer;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .text-area {
+    width: 95%;
+    margin: 0 auto;
+    font-size: 1rem;
+    padding-bottom: 0.5em;
+    h3 {
+      font-size: 2rem;
+      margin: 0.1em auto;
+    }
+    p {
+      margin: 0 auto;
+    }
+    .tags {
+      font-family: "Roboto Mono", sans-serif;
+    }
+  }
+  &:hover{
+      background: darken($color: color(blue), $amount: 10%);
+  }
+}
