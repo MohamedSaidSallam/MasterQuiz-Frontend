@@ -82,10 +82,14 @@ header {
 
 .account-icon-section {
   color: white;
-  padding: 0.1em;
-  font-size: 1rem;
+  padding: 0.3em;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
   .account-icon {
-    width: 2.5em;
+    width: 2.4em;
   }
   &:hover {
     background-color: $highlight;
