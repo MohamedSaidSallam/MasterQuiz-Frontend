@@ -10,8 +10,10 @@
   cursor: pointer;
   background: color(accent);
   padding: 1em;
+  padding-left: 1.5em;
   &:hover {
     // background: darken($color: color(accent), $amount: 20%);
+    padding-left: 1em;
     border-left: color(blue) 0.5em solid;
   }
 }
