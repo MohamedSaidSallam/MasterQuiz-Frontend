@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-popular',
@@ -6,28 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popular.component.scss'],
 })
 export class PopularComponent implements OnInit {
-  quizzes = [{
-    genres: ['Tag 1', 'Tag 2', 'Tag 3'],
-    name: 'Quiz Title',
-    description: 'Quiz Description with filler text',
-  },
-  {
-    genres: ['Tag 1', 'Tag 2', 'Tag 3'],
-    name: 'Quiz Title',
-    description: 'Quiz Description with filler text',
-  },
-  {
-    genres: ['Tag 1', 'Tag 2', 'Tag 3'],
-    name: 'Quiz Title',
-    description: 'Quiz Description with filler text',
-  },
-  {
-    genres: ['Tag 1', 'Tag 2', 'Tag 3'],
-    name: 'Quiz Title',
-    description: 'Quiz Description with filler text',
-  }];
+  quizzes: any[];
 
-  constructor() {}
+  constructor(private backendService: BackendService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.backendService.getQuizzes().subscribe((data: any[]) => {
+      this.quizzes = data;
+    });
+  }
 }

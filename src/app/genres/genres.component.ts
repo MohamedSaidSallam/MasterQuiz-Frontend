@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-genres',
   templateUrl: './genres.component.html',
-  styleUrls: ['./genres.component.scss']
+  styleUrls: ['./genres.component.scss'],
 })
 export class GenresComponent implements OnInit {
+  genres: string[];
 
-  genres = ['Genre 1', 'Genre 2', 'Genre 3', 'Genre 4', 'Genre 5', 'Genre 6', 'Genre 7', 'Genre 8'];
-
-  constructor() { }
+  constructor(private backendService: BackendService) {}
 
   ngOnInit(): void {
+    this.backendService.getQuizzes().subscribe((data: any[]) => {
+      this.genres = [];
+      data.forEach((element) => {
+        this.genres = this.genres.concat(element.genres);
+      });
+      this.genres = [...new Set(this.genres)];
+    });
   }
-
 }
