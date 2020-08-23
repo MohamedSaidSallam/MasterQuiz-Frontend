@@ -9,9 +9,7 @@ const API_ENDPOINT_QUIZZES = 'quizzes/';
   providedIn: 'root',
 })
 export class BackendService {
-  constructor(private http: HttpClient) {
-    console.log('constructor');
-  }
+  constructor(private http: HttpClient) {}
   getQuizzes(): Observable<object> {
     return this.http.get(API_ENDPOINT + API_ENDPOINT_QUIZZES);
   }
