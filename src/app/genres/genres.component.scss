@@ -1,18 +1,21 @@
 @import "../../styles.scss";
 
-
 .genres-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1em;
+  width: 95%;
+  margin: 0 auto;
 }
 .grid-item {
   cursor: pointer;
   background: color(accent);
   padding: 1em;
   padding-left: 1.5em;
+  font-size: 0.95rem;
+  text-transform: capitalize;
   &:hover {
-    // background: darken($color: color(accent), $amount: 20%);
+    background: darken($color: color(accent), $amount: 8%);
     padding-left: 1em;
     border-left: color(blue) 0.5em solid;
   }

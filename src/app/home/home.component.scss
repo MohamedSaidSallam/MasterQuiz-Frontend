@@ -1,32 +1,49 @@
 @import "../../styles.scss";
 
 .home-container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 5em;
+  gap: 0.3em;
 }
 h1 {
   color: white;
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 4rem;
   margin: 0.5em auto;
+  margin-top: 0;
+  .fun {
+    color: color(blue);
+  }
+  .quizzes {
+    color: color(accent);
+  }
+  .friends {
+    color: color(green);
+  }
 }
 .subsection {
   margin-left: 1em;
 
   p {
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
+    .realtime {
+      color: color(green);
+    }
   }
   button {
-      background-color: color(accent);
-      border: none;
-      padding: 1em;
-      font-size: 1rem;
-      font-weight: 600;
+    background-color: color(accent);
+    border: none;
+    padding: 1em;
+    font-size: 1rem;
+    font-weight: 600;
     //   font: "Roboto", sans-serif;
     cursor: pointer;
-    &:hover{
+    &:hover {
       background: darken($color: color(accent), $amount: 10%);
     }
   }

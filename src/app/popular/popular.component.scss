@@ -1,15 +1,11 @@
 @import "../../styles.scss";
 
-h1 {
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-}
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1em;
   margin: 1em auto;
+  width: 95%;
 }
 .card {
   color: white;
@@ -21,17 +17,22 @@ h1 {
   .text-area {
     width: 95%;
     margin: 0 auto;
-    font-size: 1rem;
     padding-bottom: 0.5em;
     h3 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin: 0.1em auto;
+      text-transform: capitalize;
     }
     p {
+      font-size: 0.9rem;
       margin: 0 auto;
+      text-overflow: ellipsis;
+      max-width: 75ch;
+      overflow: hidden;
     }
     .tags {
       font-family: "Roboto Mono", sans-serif;
+      color: color(accent);
     }
   }
   &:hover{

@@ -5,8 +5,14 @@ $highlight: darken(
   $amount: 10%,
 );
 
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .container {
-  width: 85%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -96,14 +102,7 @@ header {
   }
 }
 
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
 .main-content {
-  margin: 1em 0;
   flex: 1 0 auto;
 }
 
@@ -118,7 +117,8 @@ footer {
     font-family: "Roboto Mono", sans-serif;
     color: white;
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    margin: 0.5em 0;
   }
   .made-by {
     flex: 1 0 auto;
@@ -128,7 +128,7 @@ footer {
       color: white;
     }
     img {
-      width: 2.5em;
+      width: 2em;
       vertical-align: middle;
       margin-left: 0.5em;
     }
