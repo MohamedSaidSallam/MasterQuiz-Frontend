@@ -41,7 +41,6 @@ h1 {
     padding: 1em;
     font-size: 1rem;
     font-weight: 600;
-    //   font: "Roboto", sans-serif;
     cursor: pointer;
     &:hover {
       background: darken($color: color(accent), $amount: 10%);
