@@ -17,8 +17,14 @@ $highlight: darken(
 }
 
 header {
-  background: color(primary-dark);
+  background: rgba($color: color(primary-dark), $alpha: 0.9);
   padding: 0em 0;
+  box-shadow: 0 0 1em -0.15em black;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   .header-items {
     display: flex;
@@ -104,6 +110,7 @@ header {
 
 .main-content {
   flex: 1 0 auto;
+  margin-top: 3em;
 }
 
 footer {
