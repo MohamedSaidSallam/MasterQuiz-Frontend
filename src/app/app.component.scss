@@ -9,6 +9,8 @@ $highlight: darken(
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  background-image: url("../assets/QuestionMarkBackgroundPattern.png");
+  background-size: 45%;
 }
 
 .container {

@@ -35,3 +35,5 @@ https://fonts.google.com/specimen/Roboto+Mono
 https://github.com/google/material-design-icons/blob/master/action/ios/ic_search_white_72pt.imageset/ic_search_white_72pt_3x.png
 
 https://github.com/FortAwesome/Font-Awesome/blob/master/svgs/solid/user-circle.svg
+
+Background: Designed by vilmosvarga / Freepik: http://www.freepik.com 
