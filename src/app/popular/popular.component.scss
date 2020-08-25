@@ -19,23 +19,40 @@
     margin: 0 auto;
     padding-bottom: 0.5em;
     h3 {
-      font-size: 1.5rem;
       margin: 0.1em auto;
+
+      font-size: 1.5rem;
       text-transform: capitalize;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
     p {
-      font-size: 0.9rem;
       margin: 0 auto;
-      text-overflow: ellipsis;
-      max-width: 75ch;
+
+      font-size: 0.9rem;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
       overflow: hidden;
     }
     .tags {
+      margin-top: 0.35em;
+
+      font-size: 0.8rem;
       font-family: "Roboto Mono", sans-serif;
       color: color(accent);
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
     }
   }
-  &:hover{
-      background: darken($color: color(blue), $amount: 10%);
+  &:hover {
+    background: darken($color: color(blue), $amount: 10%);
   }
 }
