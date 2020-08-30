@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -9,9 +10,12 @@ import { Location } from '@angular/common';
 export class QuizWaitingComponent implements OnInit {
   quiz: any;
 
-  constructor(private location: Location) {}
+  constructor(private location: Location, private router: Router) {}
 
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
+    if (this.quiz === undefined) {
+      this.router.navigateByUrl('/PageNotFound');
+    }
   }
 }
