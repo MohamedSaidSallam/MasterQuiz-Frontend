@@ -8,6 +8,8 @@ import { BackendService } from '../backend.service';
 })
 export class PopularComponent implements OnInit {
   quizzes: any[];
+  selectedQuiz: any;
+  detailedViewVisible = false;
 
   constructor(private backendService: BackendService) {}
 

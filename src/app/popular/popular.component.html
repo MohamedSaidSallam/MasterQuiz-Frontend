@@ -1,11 +1,22 @@
 <h1>Popular Quizzes</h1>
 <div class="card-grid">
-  <div *ngFor="let quiz of quizzes" class="card">
-    <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="">
+  <div *ngFor="let quiz of quizzes" (click)="detailedViewVisible=true; selectedQuiz=quiz" class="card">
+    <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
     <div class="text-area">
       <h3>{{quiz.name}}</h3>
       <p>{{quiz.description}}</p>
       <p class="tags">{{quiz.genres.join(',')}}</p>
+    </div>
+  </div>
+</div>
+
+<div [style.visibility]="this.detailedViewVisible ? 'visible' : 'hidden'" (click)="detailedViewVisible=false"
+  class="black-overlay">
+  <div *ngIf="selectedQuiz" (click)="$event.stopPropagation()" class="overlay-background">
+    <div class="first-Col">
+      <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+    </div>
+    <div class="second-Col">
     </div>
   </div>
 </div>
