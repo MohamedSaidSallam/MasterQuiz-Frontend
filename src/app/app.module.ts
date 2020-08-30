@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { PopularComponent } from './popular/popular.component';
 import { GenresComponent } from './genres/genres.component';
 import { HomeComponent } from './home/home.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PopularComponent,
     GenresComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
