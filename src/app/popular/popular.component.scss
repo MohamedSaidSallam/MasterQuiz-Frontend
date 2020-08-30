@@ -113,9 +113,12 @@
     .description {
       text-align: justify;
 
-      width: 90%;
+      padding-right: 1em;
 
       margin: 0;
+
+      max-height: 55vh;
+      overflow-y: auto;
     }
     .genres {
       font-style: italic;
