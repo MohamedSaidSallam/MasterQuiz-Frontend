@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PopularComponent } from './popular/popular.component';
 import { GenresComponent } from './genres/genres.component';
+import { QuizWaitingComponent } from './quiz-waiting/quiz-waiting.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'genres',
     component: GenresComponent,
+  },
+  {
+    path: 'quiz_waiting',
+    component: QuizWaitingComponent,
   },
   {
     path: 'PageNotFound',

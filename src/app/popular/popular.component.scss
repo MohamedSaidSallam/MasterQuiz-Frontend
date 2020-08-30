@@ -130,12 +130,13 @@
       background: color(accent);
       cursor: pointer;
       padding: 0.5em;
-      span {
-        color: black;
-        font-size: 1.3rem;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
+
+      color: black;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+
       &:hover {
         background: darken($color: color(accent), $amount: 10%);
       }

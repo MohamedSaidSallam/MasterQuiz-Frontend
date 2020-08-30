@@ -26,9 +26,7 @@
       <h3>{{selectedQuiz.name}}</h3>
       <p class="description">{{selectedQuiz.description}}</p>
       <p class="genres">{{selectedQuiz.genres.join(', ')}}</p>
-      <div class="start-button">
-        <span>Start Now</span>
-      </div>
+      <a class="start-button" href="#" routerLink='/quiz_waiting' [state]="{quiz: selectedQuiz}">Start Now</a>
     </div>
   </div>
 </div>
