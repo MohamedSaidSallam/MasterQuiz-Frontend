@@ -1,1 +1,41 @@
 @import "../../styles.scss";
+
+.container {
+  display: flex;
+  gap: 1em;
+}
+
+.participants-area {
+  flex: 1 0 auto;
+  h2 {
+      margin-top: 0;
+  }
+  .participants-background {
+    background: rgba($color: #000000, $alpha: 0.2);
+    padding: 0.5em;
+  }
+  .participant {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.2em;
+
+    .tempImg {
+      width: 2em;
+      height: 2em;
+      background: pink;
+    }
+    h4{
+        margin: 0;
+    }
+    &:hover {
+      background: rgba($color: color(accent), $alpha: 0.5);
+    }
+  }
+}
+.info-area {
+    flex: 2 0 auto;
+}
+.chat-area {
+    flex: 2 0 auto;
+}

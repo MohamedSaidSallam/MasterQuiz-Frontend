@@ -9,6 +9,14 @@ import { Location } from '@angular/common';
 })
 export class QuizWaitingComponent implements OnInit {
   quiz: any;
+  participants = [
+    { name: 'Someone1' },
+    { name: 'Someone2' },
+    { name: 'Someone3' },
+    { name: 'Someone4' },
+    { name: 'Someone5' },
+    { name: 'Someone6asd asd asdqw dqwd asd wqd asd asdw asdw dasd ' },
+  ];
 
   constructor(private location: Location, private router: Router) {}
 
