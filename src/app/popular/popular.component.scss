@@ -81,9 +81,61 @@
 
   padding: 0.4em;
 
+  box-shadow: 0.4em 0.4em 0.5em #000000;
+
   .first-Col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    p {
+      margin: 0;
+    }
+    img {
+      width: 14em;
+    }
+    .stat-highlight {
+      color: color(blue);
+    }
+    .hash {
+      font-size: 2rem;
+    }
   }
 
   .second-Col {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-weight: 700;
+      font-size: 3rem;
+      margin: 0.3em;
+    }
+    .description {
+      text-align: justify;
+
+      width: 90%;
+
+      margin: 0;
+    }
+    .genres {
+      font-style: italic;
+      color: lightgray;
+      font-size: 0.9rem;
+    }
+    .start-button {
+      margin-top: auto;
+      background: color(accent);
+      cursor: pointer;
+      padding: 0.5em;
+      span {
+        color: black;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      &:hover {
+        background: darken($color: color(accent), $amount: 10%);
+      }
+    }
   }
 }

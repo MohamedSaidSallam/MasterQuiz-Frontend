@@ -15,8 +15,20 @@
   <div *ngIf="selectedQuiz" (click)="$event.stopPropagation()" class="overlay-background">
     <div class="first-Col">
       <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+      <p title="{{selectedQuiz.author}}"><i class="material-icons">create</i>{{selectedQuiz.author}}</p>
+      <p title="Created On"><i class="material-icons">calendar_today</i> {{selectedQuiz.createdOn.substring(0, 10)}}</p>
+      <p title="Number Of Questions"><span class="hash"> # </span> Questions <span
+          class="stat-highlight">{{selectedQuiz.questions.length}}</span></p>
+      <p title="Times Answered"><span class="hash"> # </span> Answers <span
+          class="stat-highlight">{{selectedQuiz.timesAnswered}}</span></p>
     </div>
     <div class="second-Col">
+      <h3>{{selectedQuiz.name}}</h3>
+      <p class="description">{{selectedQuiz.description}}</p>
+      <p class="genres">{{selectedQuiz.genres.join(', ')}}</p>
+      <div class="start-button">
+        <span>Start Now</span>
+      </div>
     </div>
   </div>
 </div>
