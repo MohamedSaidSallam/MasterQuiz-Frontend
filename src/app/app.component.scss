@@ -55,6 +55,10 @@ header {
   }
 }
 
+.active-route{
+  border-bottom: 0.22em solid color(accent);
+}
+
 .logo {
   display: flex;
   align-items: center;
