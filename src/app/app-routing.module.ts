@@ -5,6 +5,7 @@ import { PopularComponent } from './popular/popular.component';
 import { GenresComponent } from './genres/genres.component';
 import { QuizWaitingComponent } from './quiz-waiting/quiz-waiting.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'quiz_waiting',
     component: QuizWaitingComponent,
+  },
+  {
+    path: 'quiz',
+    component: QuizComponent,
   },
   {
     path: 'PageNotFound',

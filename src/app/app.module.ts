@@ -9,6 +9,7 @@ import { GenresComponent } from './genres/genres.component';
 import { HomeComponent } from './home/home.component';
 import { QuizWaitingComponent } from './quiz-waiting/quiz-waiting.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     GenresComponent,
     HomeComponent,
     QuizWaitingComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
