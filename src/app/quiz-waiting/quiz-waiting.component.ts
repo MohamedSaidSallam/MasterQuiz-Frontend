@@ -10,12 +10,15 @@ import { Location } from '@angular/common';
 export class QuizWaitingComponent implements OnInit {
   quiz: any;
   participants = [
-    { name: 'Someone1' },
-    { name: 'Someone2' },
-    { name: 'Someone3' },
-    { name: 'Someone4' },
-    { name: 'Someone5' },
-    { name: 'Someone6asd asd asdqw dqwd asd wqd asd asdw asdw dasd ' },
+    { name: 'Someone1', isReady: false },
+    { name: 'Someone2', isReady: true },
+    { name: 'Someone3', isReady: true },
+    { name: 'Someone4', isReady: false },
+    { name: 'Someone5', isReady: false },
+    {
+      name: 'Someone6asd asd asdqw dqwd asd wqd asd asdw asdw dasd ',
+      isReady: true,
+    },
   ];
 
   constructor(private location: Location, private router: Router) {}
