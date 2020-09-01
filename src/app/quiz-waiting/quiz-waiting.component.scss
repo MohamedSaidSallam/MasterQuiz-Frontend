@@ -1,18 +1,27 @@
 @import "../../styles.scss";
 
+$background_color: rgba(
+  $color: #000000,
+  $alpha: 0.2,
+);
+$background_padding: 0.5em;
+
 .container {
   display: flex;
+  max-width: 100%;
   gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+h2 {
+  margin-top: 0;
 }
 
 .participants-area {
-  flex: 1 0 auto;
-  h2 {
-      margin-top: 0;
-  }
+  flex: 1 2 auto;
   .participants-background {
-    background: rgba($color: #000000, $alpha: 0.2);
-    padding: 0.5em;
+    background: $background_color;
+    padding: $background_padding;
   }
   .participant {
     display: flex;
@@ -21,6 +30,7 @@
     padding: 0.2em;
 
     .tempImg {
+      flex-shrink: 0;
       width: 2em;
       height: 2em;
       background: pink;
@@ -39,8 +49,76 @@
   }
 }
 .info-area {
-    flex: 2 0 auto;
+  flex: 2 1 auto;
+}
+
+.info-background {
+  background: $background_color;
+  padding: $background_padding;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1em;
+  img {
+    max-width: 100%;
+  }
+  p {
+    margin: 0;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 0.2em;
+  }
+  .description {
+    font-size: 1.5rem;
+    text-align: justify;
+
+    padding-right: 1em;
+
+    margin: 0;
+
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+  .genres {
+    font-style: italic;
+    color: lightgray;
+    font-size: 1rem;
+  }
+  .stat-highlight {
+    color: color(blue);
+  }
+  .hash {
+    font-size: 2rem;
+    vertical-align: middle;
+  }
+  .start-button {
+    margin-top: 2em;
+    background: color(accent);
+    cursor: pointer;
+    padding: 0.5em;
+
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+      background: darken($color: color(accent), $amount: 10%);
+    }
+  }
+  .extra-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    p {
+      vertical-align: middle;
+    }
+  }
 }
 .chat-area {
-    flex: 2 0 auto;
+  flex: 2 1 auto;
 }

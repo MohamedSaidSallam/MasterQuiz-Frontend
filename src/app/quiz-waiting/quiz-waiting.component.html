@@ -13,10 +13,26 @@
           {{participant.name}}</h4>
       </div>
     </div>
-    <div class="info-area">
-        <h2>QUIZ INFO</h2>
+  </div>
+  <div class="info-area">
+    <h2>QUIZ INFO</h2>
+    <div class="info-background">
+      <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+      <h3>{{quiz.name}}</h3>
+      <p class="description">{{quiz.description}}</p>
+      <p class="genres">{{quiz.genres.join(', ')}}</p>
+      <div class="extra-details">
+        <p title="{{quiz.author}}"><i class="material-icons">create</i>{{quiz.author}}</p>
+        <p title="Created On"><i class="material-icons">calendar_today</i> {{quiz.createdOn.substring(0, 10)}}</p>
+        <p title="Number Of Questions"><span class="hash"> # </span> Questions <span
+            class="stat-highlight">{{quiz.questions.length}}</span></p>
+        <p title="Times Answered"><span class="hash"> # </span> Answers <span
+            class="stat-highlight">{{quiz.timesAnswered}}</span></p>
+      </div>
+      <a class="start-button" href="#" routerLink='/quiz_waiting' [state]="{quiz: quiz}">Ready</a>
     </div>
-    <div class="chat-area">
-        <h2>CHAT</h2>
-    </div>
+  </div>
+  <div class="chat-area">
+    <h2>CHAT</h2>
+  </div>
 </div>
