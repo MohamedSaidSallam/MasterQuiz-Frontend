@@ -1,1 +1,37 @@
 @import "../../styles.scss";
+
+h1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.questions-area {
+  width: 50%;
+  margin: 0 auto;
+
+  padding: $black_background_padding;
+  background: $black_background_color;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+  .choice {
+    margin: 0.5em 0;
+
+    background: color(accent);
+    padding: 0.5em;
+
+    font-size: 1.2rem;
+    color: black;
+
+    cursor: pointer;
+
+    &:hover {
+      background: darken($color: color(accent), $amount: 10%);
+      border-left: color(blue) 0.5em solid;
+    }
+  }
+}

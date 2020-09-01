@@ -9,6 +9,8 @@ import { Location } from '@angular/common';
 })
 export class QuizComponent implements OnInit {
   quiz: any;
+  currentQuestion = 0;
+
   constructor(private location: Location, private router: Router) {}
 
   ngOnInit(): void {

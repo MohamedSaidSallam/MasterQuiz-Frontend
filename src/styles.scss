@@ -11,6 +11,12 @@ $colors: (
   blue: rgba(65, 211, 189, 1),
 );
 
+$black_background_color: rgba(
+  $color: #000000,
+  $alpha: 0.2,
+);
+$black_background_padding: 0.5em;
+
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }

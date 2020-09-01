@@ -1,11 +1,5 @@
 @import "../../styles.scss";
 
-$background_color: rgba(
-  $color: #000000,
-  $alpha: 0.2,
-);
-$background_padding: 0.5em;
-
 .container {
   display: flex;
   max-width: 100%;
@@ -20,8 +14,8 @@ h2 {
 .participants-area {
   flex: 1 2 auto;
   .participants-background {
-    background: $background_color;
-    padding: $background_padding;
+    background: $black_background_color;
+    padding: $black_background_padding;
   }
   .participant {
     display: flex;
@@ -53,8 +47,8 @@ h2 {
 }
 
 .info-background {
-  background: $background_color;
-  padding: $background_padding;
+  background: $black_background_color;
+  padding: $black_background_padding;
 
   display: flex;
   flex-direction: column;
@@ -122,8 +116,8 @@ h2 {
 .chat-area {
   flex: 2 1 auto;
   .chat-background {
-    background: $background_color;
-    padding: $background_padding;
+    background: $black_background_color;
+    padding: $black_background_padding;
   }
   .tempChat {
     width: 20vw;
