@@ -121,4 +121,13 @@ h2 {
 }
 .chat-area {
   flex: 2 1 auto;
+  .chat-background {
+    background: $background_color;
+    padding: $background_padding;
+  }
+  .tempChat {
+    width: 20vw;
+    height: 55vh;
+    background: pink;
+  }
 }
