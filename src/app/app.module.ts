@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { QuizWaitingComponent } from './quiz-waiting/quiz-waiting.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { QuizScoreComponent } from './quiz-score/quiz-score.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { QuizComponent } from './quiz/quiz.component';
     HomeComponent,
     QuizWaitingComponent,
     ErrorPageComponent,
-    QuizComponent
+    QuizComponent,
+    QuizScoreComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { GenresComponent } from './genres/genres.component';
 import { QuizWaitingComponent } from './quiz-waiting/quiz-waiting.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { QuizScoreComponent } from './quiz-score/quiz-score.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'quiz',
     component: QuizComponent,
+  },
+  {
+    path: 'quiz_score',
+    component: QuizScoreComponent,
   },
   {
     path: 'PageNotFound',

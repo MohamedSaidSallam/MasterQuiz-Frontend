@@ -23,7 +23,7 @@ export class QuizComponent implements OnInit {
   nextQuestion(choice: string): void {
     this.currentQuestion++;
     if (this.currentQuestion >= this.quiz.questions.length) {
-      console.log('Quiz Done!');
+      this.router.navigate(['/quiz_score']);
     }
   }
 }
