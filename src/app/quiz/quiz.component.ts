@@ -19,4 +19,11 @@ export class QuizComponent implements OnInit {
       this.router.navigateByUrl('/PageNotFound');
     }
   }
+
+  nextQuestion(choice: string): void {
+    this.currentQuestion++;
+    if (this.currentQuestion >= this.quiz.questions.length) {
+      console.log('Quiz Done!');
+    }
+  }
 }
