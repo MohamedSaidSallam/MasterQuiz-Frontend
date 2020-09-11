@@ -14,8 +14,8 @@ export class SocketNameSpace extends Socket{
 export class SessionService {
   room: SocketNameSpace;
 
-  constructor(private socket: Socket, private code : string) { 
-    const room = socket.of(code);
+  constructor(private socket: Socket) {
+    const code = 'fsf' 
     this.room  = new SocketNameSpace({url: 'http://localhost:3000',options: { path: `/${code}` }  });
   }
 
