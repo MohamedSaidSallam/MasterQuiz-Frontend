@@ -2,7 +2,7 @@
 <div class="container">
   <div class="participants-area">
     <h2>PARTICIPANTS</h2>
-    <div class="participants-background">
+    <div class="black-background">
       <div *ngFor="let participant of participants" class="participant">
         <div class="tempImg"></div>
         <i *ngIf="participant.isReady; else elseBlock" class="material-icons">check_box</i>
@@ -16,7 +16,7 @@
   </div>
   <div class="info-area">
     <h2>QUIZ INFO</h2>
-    <div class="info-background">
+    <div class="info-background black-background">
       <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
       <h3>{{quiz.name}}</h3>
       <p class="description">{{quiz.description}}</p>
@@ -34,7 +34,7 @@
   </div>
   <div class="chat-area">
     <h2>CHAT</h2>
-    <div class="chat-background">
+    <div class="black-background">
       <div class="tempChat"></div>
     </div>
   </div>

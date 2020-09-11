@@ -13,10 +13,6 @@ h2 {
 
 .participants-area {
   flex: 1 2 auto;
-  .participants-background {
-    background: $black_background_color;
-    padding: $black_background_padding;
-  }
   .participant {
     display: flex;
     align-items: center;
@@ -47,9 +43,6 @@ h2 {
 }
 
 .info-background {
-  background: $black_background_color;
-  padding: $black_background_padding;
-
   display: flex;
   flex-direction: column;
 
@@ -115,10 +108,6 @@ h2 {
 }
 .chat-area {
   flex: 2 1 auto;
-  .chat-background {
-    background: $black_background_color;
-    padding: $black_background_padding;
-  }
   .tempChat {
     width: 20vw;
     height: 55vh;
