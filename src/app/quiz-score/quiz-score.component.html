@@ -1,1 +1,33 @@
-<p>quiz-score works!</p>
+<h1>Score Screen</h1>
+
+<div class="scores">
+  <table class="user-score">
+    <tr>
+      <td>Score: </td>
+      <td class="score-second-col stat-highlight"> {{participants[currentParticipantIndex].score}} </td>
+    </tr>
+    <tr>
+      <td> Position: </td>
+      <td class="score-second-col">
+        {{currentParticipantIndex+1}}{{getPositionPostfix(currentParticipantIndex)}}
+        <span class="material-icons client-trophy" [class]="getTrophyClass(currentParticipantIndex)"> emoji_events
+        </span>
+      </td>
+    </tr>
+  </table>
+
+  <ul class="top-three-list">
+    <li *ngFor="let i of [0, 1, 2]" class="black-background top-three">
+      <span title="{{getTrophyTitle(i)}}" class="material-icons trophy" [class]="getTrophyClass(i)"> emoji_events
+      </span>
+      <div class="top-three-text">
+        <span class="top-three-position one-line-text-trim"
+          title="{{participants[i].name}}">{{participants[i].name}}</span>
+        <span class="top-three-score">
+          Score: <span class="stat-highlight">{{participants[i].score}}</span>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+
