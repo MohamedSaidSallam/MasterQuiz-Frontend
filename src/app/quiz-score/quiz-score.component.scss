@@ -104,3 +104,20 @@
   }
 }
 
+.share-results {
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+
+  .share-platform {
+    cursor: pointer;
+  }
+  svg {
+    fill: white;
+    width: 110%;
+    height: auto;
+    &:hover {
+      fill: color(accent);
+    }
+  }
+}
