@@ -12,11 +12,11 @@ export class QuizScoreComponent implements OnInit {
     { name: 'Someone1', score: 2518, isReady: false },
     { name: 'Someone2', score: 1234, isReady: true },
     { name: 'Someone3', score: 2036, isReady: true },
-    { name: 'Someone4', score: 1988, isReady: false },
+    { name: 'Someone4', score: 2988, isReady: false },
     { name: 'Someone5', score: 3628, isReady: false },
     {
       name: 'Someone6asd asd asdqw dqwd asd wqd asd asdw asdw dasd ',
-      score: 4151,
+      score: 151,
       isReady: true,
     },
   ];

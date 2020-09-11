@@ -67,3 +67,40 @@
 .iron-trophy {
   color: rgba($color: #cbcdcd, $alpha: 1);
 }
+
+.scores-remaining-list {
+  width: 50%;
+  margin: 1em auto;
+
+  list-style-type: none;
+
+  .remaining-list-entry {
+    display: flex;
+    gap: 0.5em;
+
+    padding: 0.3em;
+
+    align-items: center;
+
+    .remaining-participant-position {
+      font-size: 1.5rem;
+    }
+
+    .remaining-participant-name {
+      text-align: left;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+    }
+    .remaining-participant-score {
+      margin-left: auto;
+    }
+
+    &:hover {
+      background: darken($color: color(primary-dark), $amount: 10%);
+    }
+  }
+}
+

@@ -30,5 +30,17 @@
       </div>
     </li>
   </ul>
+  <ul class="scores-remaining-list black-background">
+    <li *ngFor="let idParticipantTuple of participants.slice(3).entries()" class="remaining-list-entry">
+      <span class="remaining-participant-position">
+        {{idParticipantTuple[0] + 3}}{{getPositionPostfix(idParticipantTuple[0] + 3)}}.
+      </span>
+      <span class="remaining-participant-name"
+        title="{{idParticipantTuple[1].name}}">{{idParticipantTuple[1].name}}</span>
+      <span class="remaining-participant-score">
+        <span class="stat-highlight">{{idParticipantTuple[1].score}}</span>
+      </span>
+    </li>
+  </ul>
 </div>
 
