@@ -17,14 +17,15 @@
   </table>
 
   <ul class="top-three-list">
-    <li *ngFor="let i of [0, 1, 2]" class="black-background top-three">
-      <span title="{{getTrophyTitle(i)}}" class="material-icons trophy" [class]="getTrophyClass(i)"> emoji_events
+    <li *ngFor="let idParticipantTuple of participants.slice(0, 3).entries()" class="black-background top-three">
+      <span title="{{getTrophyTitle(idParticipantTuple[0])}}" class="material-icons trophy"
+        [class]="getTrophyClass(idParticipantTuple[0])"> emoji_events
       </span>
       <div class="top-three-text">
         <span class="top-three-position one-line-text-trim"
-          title="{{participants[i].name}}">{{participants[i].name}}</span>
+          title="{{idParticipantTuple[1].name}}">{{idParticipantTuple[1].name}}</span>
         <span class="top-three-score">
-          Score: <span class="stat-highlight">{{participants[i].score}}</span>
+          Score: <span class="stat-highlight">{{idParticipantTuple[1].score}}</span>
         </span>
       </div>
     </li>
