@@ -11,6 +11,10 @@ import { QuizWaitingComponent } from './quiz-waiting/quiz-waiting.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizScoreComponent } from './quiz-score/quiz-score.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const API_ENDPOINT = 'https://masterquiz-backend.herokuapp.com/api/';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -27,6 +31,7 @@ import { QuizScoreComponent } from './quiz-score/quiz-score.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
