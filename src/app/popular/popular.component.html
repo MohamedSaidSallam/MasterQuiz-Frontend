@@ -1,32 +1,29 @@
 <h1>Popular Quizzes</h1>
 <div class="card-grid">
-  <div *ngFor="let quiz of quizzes" (click)="detailedViewVisible=true; selectedQuiz=quiz" class="card">
-    <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
-    <div class="text-area">
-      <h3>{{quiz.name}}</h3>
-      <p>{{quiz.description}}</p>
-      <p class="tags">{{quiz.genres.join(',')}}</p>
+    <div *ngFor="let quiz of quizzes" (click)="detailedViewVisible=true; selectedQuiz=quiz" class="card">
+        <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+        <div class="text-area">
+            <h3>{{quiz.name}}</h3>
+            <p>{{quiz.description}}</p>
+            <p class="tags">{{quiz.genres.join(',')}}</p>
+        </div>
     </div>
-  </div>
 </div>
 
-<div [style.visibility]="this.detailedViewVisible ? 'visible' : 'hidden'" (click)="detailedViewVisible=false"
-  class="black-overlay">
-  <div *ngIf="selectedQuiz" (click)="$event.stopPropagation()" class="overlay-background">
-    <div class="first-Col">
-      <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
-      <p title="{{selectedQuiz.author}}"><i class="material-icons">create</i>{{selectedQuiz.author}}</p>
-      <p title="Created On"><i class="material-icons">calendar_today</i> {{selectedQuiz.createdOn.substring(0, 10)}}</p>
-      <p title="Number Of Questions"><span class="hash"> # </span> Questions <span
-          class="stat-highlight">{{selectedQuiz.questions.length}}</span></p>
-      <p title="Times Answered"><span class="hash"> # </span> Answers <span
-          class="stat-highlight">{{selectedQuiz.timesAnswered}}</span></p>
+<div [style.visibility]="this.detailedViewVisible ? 'visible' : 'hidden'" (click)="detailedViewVisible=false" class="black-overlay">
+    <div *ngIf="selectedQuiz" (click)="$event.stopPropagation()" class="overlay-background">
+        <div class="first-Col">
+            <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+            <p title="{{selectedQuiz.author}}"><i class="material-icons">create</i>{{selectedQuiz.author}}</p>
+            <p title="Created On"><i class="material-icons">calendar_today</i> {{selectedQuiz.createdOn.substring(0, 10)}}</p>
+            <p title="Number Of Questions"><span class="hash"> # </span> Questions <span class="stat-highlight">{{selectedQuiz.questions.length}}</span></p>
+            <p title="Times Answered"><span class="hash"> # </span> Answers <span class="stat-highlight">{{selectedQuiz.timesAnswered}}</span></p>
+        </div>
+        <div class="second-Col">
+            <h3>{{selectedQuiz.name}}</h3>
+            <p class="description">{{selectedQuiz.description}}</p>
+            <p class="genres">{{selectedQuiz.genres.join(', ')}}</p>
+            <a class="start-button" (click)="openQuizWaitingRoom()">Start Now</a>
+        </div>
     </div>
-    <div class="second-Col">
-      <h3>{{selectedQuiz.name}}</h3>
-      <p class="description">{{selectedQuiz.description}}</p>
-      <p class="genres">{{selectedQuiz.genres.join(', ')}}</p>
-      <a class="start-button" href="#" routerLink='/quiz_waiting' [state]="{quiz: selectedQuiz}">Start Now</a>
-    </div>
-  </div>
 </div>

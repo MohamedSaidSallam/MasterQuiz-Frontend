@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Socket, SocketIoConfig } from 'ngx-socket-io';
 import { Observable } from 'rxjs';
 
-export class SocketNameSpace extends Socket{
-  constructor(socketConfig: SocketIoConfig){
+export class SocketNameSpace extends Socket {
+  constructor(socketConfig: SocketIoConfig) {
     super(socketConfig);
   }
 }
@@ -15,24 +15,73 @@ export class SocketNameSpace extends Socket{
 export class SessionService {
   room: SocketNameSpace;
 
-  constructor(private code : string) {
-    const code = 'fsf' 
-    this.room  = new SocketNameSpace({url: `http://localhost:3000/session/${code}` });
+  constructor(private code: string) {
+    this.room = new SocketNameSpace({ url: `http://localhost:3000/session/${code}` });
   }
 
-  foo (){
+  foo() {
+    console.log('foo')
     this.room.emit('answer', 'hi ana msg')
   }
 
   public sendMessage(message) {
     this.room.emit('msg', message);
-}
-
-  public getMessages = () => {
-      return Observable.create((observer) => {
-          this.room.on('msg', (message) => {
-              observer.next(message);
-          });
-      });
   }
+  public addParticipant(participant) {
+    this.room.emit('addParticipant', participant);
+  }
+
+  public toggleReady(hash: string) {
+    this.room.emit('toggleReady', hash);
+  }
+  public getMessages = () => {
+    return Observable.create((observer) => {
+      this.room.on('msg', (message) => {
+        observer.next(message);
+      });
+    });
+  }
+
+  public participantAdded = () => {
+    return Observable.create((observer) => {
+      this.room.on('participantAdded', (participant) => {
+        observer.next(participant);
+      });
+    });
+  }
+
+  public oldParticipants = () => {
+    return Observable.create((observer) => {
+      this.room.on('oldParticipants', (participants) => {
+        observer.next(participants);
+      });
+    });
+  }
+
+  public readyToggled = () => {
+    return Observable.create((observer) => {
+      this.room.on('toggleReady', (hash) => {
+        observer.next(hash);
+      });
+    });
+  }
+
+  public quizAnimationStarted = () => {
+    return Observable.create((observer) => {
+      this.room.on('startQuizAnimation', () => {
+        observer.next();
+      });
+    });
+  }
+
+  public quizStarted = () => {
+    return Observable.create((observer) => {
+      this.room.on('startQuiz', () => {
+        observer.next();
+      });
+    });
+  }
+
+
+
 }
