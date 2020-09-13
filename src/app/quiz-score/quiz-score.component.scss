@@ -156,6 +156,10 @@ $full-details-table-color: #2b2b2b;
     text-align: left;
     padding: 0.25em 0 0.25em 1em;
   }
+  .arrow {
+    font-size: 0.9rem;
+    vertical-align: middle;
+  }
   p {
     margin: 0;
   }
@@ -169,6 +173,12 @@ $full-details-table-color: #2b2b2b;
     }
   }
   tbody {
+    .table-question {
+      cursor: pointer;
+      p {
+        display: inline;
+      }
+    }
     tr {
       border-bottom: 1px solid $full-details-table-color;
     }

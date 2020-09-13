@@ -28,11 +28,15 @@ export class QuizScoreComponent implements OnInit {
   remainingParticipants: IterableIterator<
     [number, { name: string; score: number; isReady: boolean }]
   >;
+  showQuestion: boolean[];
+  questionEntries: any[];
 
   constructor(private location: Location) {}
 
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
+    this.showQuestion = Array(this.quiz.questions.length).fill(true);
+    this.questionEntries = this.quiz.questions.entries();
     this.sortParticipants();
   }
 

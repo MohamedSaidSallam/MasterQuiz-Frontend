@@ -109,20 +109,26 @@
         </tr>
       </thead>
       <tbody>
-        <ng-template ngFor let-question [ngForOf]="quiz.questions">
+        <ng-template ngFor let-idQuestionsTuple [ngForOf]="questionEntries">
           <tr>
-            <th class="first-column" title="{{question.title}}">
-              <p class="one-line-text-trim">{{question.title}}</p>
+            <th class="first-column table-question" title="{{idQuestionsTuple[1].title}}"
+              (click)="showQuestion[idQuestionsTuple[0]]=!showQuestion[idQuestionsTuple[0]]">
+              <p class="one-line-text-trim">
+                <span
+                  class="arrow">{{showQuestion[idQuestionsTuple[0]] ? "▼ " : "▶ "}}</span>{{idQuestionsTuple[1].title}}
+              </p>
             </th>
             <td *ngFor="let participant of participants" [class]="true ? 'correct-answer' : 'wrong-answer'"
               title="Answer Time (Score)">1:23(1234)</td>
           </tr>
-          <tr *ngFor="let choice of question.choices" class="choice-row">
+          <tr *ngFor="let choice of idQuestionsTuple[1].choices"
+            [style.display]="showQuestion[idQuestionsTuple[0]] ? 'table-row': 'none'" class="choice-row">
             <th class="first-column" title="{{choice}}">
               <p class="one-line-text-trim">{{choice}}</p>
             </th>
             <td *ngFor="let participant of participants"
-              [class]="tempRandomBoolean() ? 'correct-answer' : 'wrong-answer'">{{tempRandomBoolean() ? '•' : ''}}</td>
+              [class]="tempRandomBoolean() ? 'correct-answer' : 'wrong-answer'">{{tempRandomBoolean() ? '•' : ''}}
+            </td>
           </tr>
         </ng-template>
       </tbody>
