@@ -17,7 +17,7 @@
   </table>
 
   <ul class="top-three-list">
-    <li *ngFor="let idParticipantTuple of participants.slice(0, 3).entries()" class="black-background top-three">
+    <li *ngFor="let idParticipantTuple of topThreeParticipants" class="black-background top-three">
       <span title="{{getTrophyTitle(idParticipantTuple[0])}}" class="material-icons trophy"
         [class]="getTrophyClass(idParticipantTuple[0])"> emoji_events
       </span>
@@ -31,7 +31,7 @@
     </li>
   </ul>
   <ul class="scores-remaining-list black-background">
-    <li *ngFor="let idParticipantTuple of participants.slice(3).entries()" class="remaining-list-entry">
+    <li *ngFor="let idParticipantTuple of remainingParticipants" class="remaining-list-entry">
       <span class="remaining-participant-position">
         {{idParticipantTuple[0] + 3}}{{getPositionPostfix(idParticipantTuple[0] + 3)}}.
       </span>

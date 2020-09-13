@@ -22,15 +22,27 @@ export class QuizScoreComponent implements OnInit {
   ];
   currentParticipantIndex: number;
   currentParticipantName = 'Someone3';
+  topThreeParticipants: IterableIterator<
+    [number, { name: string; score: number; isReady: boolean }]
+  >;
+  remainingParticipants: IterableIterator<
+    [number, { name: string; score: number; isReady: boolean }]
+  >;
 
   constructor(private location: Location) {}
 
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
+    this.sortParticipants();
+  }
+
+  sortParticipants(): void {
     this.participants.sort((a, b) => b.score - a.score);
     this.currentParticipantIndex = this.participants.findIndex(
       (item) => item.name === this.currentParticipantName
     );
+    this.topThreeParticipants = this.participants.slice(0, 3).entries();
+    this.remainingParticipants = this.participants.slice(0, 3).entries();
   }
 
   getTrophyClass(index: number): string {
