@@ -121,3 +121,66 @@
     }
   }
 }
+
+.full-details-area {
+  margin: 1em 0;
+
+  summary {
+    outline: none;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    h2 {
+      display: inline-block;
+    }
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+
+    border: 1px solid #333;
+    p {
+      margin: 0;
+    }
+    td {
+      text-align: center;
+    }
+    thead {
+      background-color: #333;
+      th {
+        padding: 1em;
+      }
+    }
+
+    td {
+      border: 1px solid #333;
+    }
+
+    tbody {
+      tr {
+        th {
+          text-align: left;
+        }
+      }
+      .choice-row {
+        background: rgba($color: color(accent), $alpha: 0.05);
+        th {
+          padding-left: 0.7em;
+        }
+      }
+    }
+    tfoot {
+      background-color: #333;
+    }
+  }
+  .correct-answer {
+    color: color(green);
+  }
+  .wrong-answer {
+    color: color(red);
+  }
+}

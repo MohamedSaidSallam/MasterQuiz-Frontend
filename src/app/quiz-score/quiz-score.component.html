@@ -93,3 +93,45 @@
     </svg>
   </div>
 </div>
+
+<div class="full-details-area black-background">
+  <details>
+    <summary>
+      <h2>Full Details</h2>
+    </summary>
+    <table>
+      <thead>
+        <tr>
+          <th>Questions</th>
+          <th *ngFor="let participant of participants" title="{{participant.name}}">
+            <p class="one-line-text-trim">{{participant.name}}</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-template ngFor let-question [ngForOf]="quiz.questions">
+          <tr>
+            <th title="{{question.title}}">
+              <p class="one-line-text-trim">{{question.title}}</p>
+            </th>
+            <td *ngFor="let participant of participants" [class]="true ? 'correct-answer' : 'wrong-answer'"
+              title="Answer Time (Score)">1:23(123)</td>
+          </tr>
+          <tr *ngFor="let choice of question.choices" class="choice-row">
+            <th title="{{choice}}">
+              <p class="one-line-text-trim">{{choice}}</p>
+            </th>
+            <td *ngFor="let participant of participants"
+              [class]="tempRandomBoolean() ? 'correct-answer' : 'wrong-answer'">{{tempRandomBoolean() ? '•' : ''}}</td>
+          </tr>
+        </ng-template>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Total Score</th>
+          <td *ngFor="let participant of participants" class="stat-highlight">{{participant.score}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </details>
+</div>

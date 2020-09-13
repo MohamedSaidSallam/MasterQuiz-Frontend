@@ -36,6 +36,10 @@ export class QuizScoreComponent implements OnInit {
     this.sortParticipants();
   }
 
+  tempRandomBoolean(): boolean {
+    return Boolean(Math.round(Math.random()));
+  }
+
   sortParticipants(): void {
     this.participants.sort((a, b) => b.score - a.score);
     this.currentParticipantIndex = this.participants.findIndex(
