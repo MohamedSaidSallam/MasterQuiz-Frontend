@@ -86,7 +86,7 @@ export class QuizScoreComponent implements OnInit {
         return 'WRONG INDEX';
     }
   }
-  showWIP(): void{
+  showWIP(): void {
     alert('WIP');
   }
 }
