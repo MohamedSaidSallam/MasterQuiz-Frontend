@@ -99,10 +99,10 @@
     <summary>
       <h2>Full Details</h2>
     </summary>
-    <table>
+    <table class="full-details-table">
       <thead>
         <tr>
-          <th>Questions</th>
+          <th class="first-column">Questions</th>
           <th *ngFor="let participant of participants" title="{{participant.name}}">
             <p class="one-line-text-trim">{{participant.name}}</p>
           </th>
@@ -111,14 +111,14 @@
       <tbody>
         <ng-template ngFor let-question [ngForOf]="quiz.questions">
           <tr>
-            <th title="{{question.title}}">
+            <th class="first-column" title="{{question.title}}">
               <p class="one-line-text-trim">{{question.title}}</p>
             </th>
             <td *ngFor="let participant of participants" [class]="true ? 'correct-answer' : 'wrong-answer'"
-              title="Answer Time (Score)">1:23(123)</td>
+              title="Answer Time (Score)">1:23(1234)</td>
           </tr>
           <tr *ngFor="let choice of question.choices" class="choice-row">
-            <th title="{{choice}}">
+            <th class="first-column" title="{{choice}}">
               <p class="one-line-text-trim">{{choice}}</p>
             </th>
             <td *ngFor="let participant of participants"
@@ -128,7 +128,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <th>Total Score</th>
+          <th class="first-column">Total Score</th>
           <td *ngFor="let participant of participants" class="stat-highlight">{{participant.score}}</td>
         </tr>
       </tfoot>

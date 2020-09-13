@@ -11,6 +11,8 @@ $colors: (
   blue: rgba(65, 211, 189, 1),
 );
 
+$border-radius: 0.2em;
+
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
@@ -37,7 +39,7 @@ h1 {
 .black-background {
   padding: 0.5em;
   background: rgba($color: #000000, $alpha: 0.2);
-  border-radius: 0.2em;
+  border-radius: $border-radius;
 }
 
 .stat-highlight {
