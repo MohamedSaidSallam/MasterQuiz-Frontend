@@ -9,9 +9,8 @@ export class SocketNameSpace extends Socket {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class SessionService {
   room: SocketNameSpace;
 
@@ -24,7 +23,7 @@ export class SessionService {
     this.room.emit('answer', 'hi ana msg')
   }
 
-  public sendMessage(message) {
+  public sendMessage(message): void {
     this.room.emit('msg', message);
   }
   public addParticipant(participant) {
