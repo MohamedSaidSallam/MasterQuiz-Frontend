@@ -16,7 +16,7 @@ export class SessionService {
   room: SocketNameSpace;
 
   constructor(private code: string) {
-    this.room = new SocketNameSpace({ url: `http://localhost:3000/session/${code}` });
+    this.room = new SocketNameSpace({ url: `https://masterquiz-backend.herokuapp.com/session/${code}` });
   }
 
   foo() {
@@ -29,6 +29,10 @@ export class SessionService {
   }
   public addParticipant(participant) {
     this.room.emit('addParticipant', participant);
+  }
+  
+  public sendQuizId(quizId) {
+    this.room.emit('sendQuizId', quizId);
   }
 
   public toggleReady(hash: string) {

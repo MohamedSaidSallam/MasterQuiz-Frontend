@@ -20,7 +20,8 @@ export class QuizComponent implements OnInit {
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
     this.participants = this.location.getState()['participants'];
-    this.sessionService = this.location.getState()['sessionService'];
+    const sessionCode = this.location.getState()['sessionCode'];
+    this.sessionService = new SessionService(sessionCode);
     if (this.quiz === undefined) {
       this.router.navigateByUrl('/PageNotFound');
     }
