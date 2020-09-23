@@ -13,7 +13,6 @@ $colors: (
 
 $border-radius: 0.2em;
 $transition-time: 0.19s;
-$button-hover-transition-time: 0.19s; // ! TEMP
 
 @function color($color-name) {
   @return map-get($colors, $color-name);
