@@ -10,12 +10,28 @@ h2 {
     margin-top: 0;
 }
 
+.invitation-code-area{
+    margin-top: 1em;
+}
+
 .invitation-link {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5em;
-    padding: 0.2em;
+
+    .inv-code-text{
+        color: color(blue);
+    }
+}
+.copy-inv-icon{
+    @extend .transition-time;
+    @extend .default-border-radius;
+
     cursor: pointer;
+
+    display: inline-block;
+
     &:hover {
         background: rgba($color: color(accent), $alpha: 0.5);
     }
@@ -24,6 +40,9 @@ h2 {
 .participants-area {
     flex: 1 2 auto;
     .participant {
+        @extend .transition-time;
+        @extend .default-border-radius;
+
         display: flex;
         align-items: center;
         gap: 0.5em;
@@ -41,6 +60,7 @@ h2 {
             -webkit-line-clamp: 1;
             overflow: hidden;
         }
+
         &:hover {
             background: rgba($color: color(accent), $alpha: 0.5);
         }
@@ -56,6 +76,8 @@ h2 {
     flex-direction: column;
     gap: 1em;
     img {
+        @extend .default-border-radius;
+
         max-width: 100%;
     }
     p {
@@ -87,18 +109,12 @@ h2 {
         vertical-align: middle;
     }
     .start-button {
+        @extend .link-button;
+
         margin-top: 2em;
-        background: color(accent);
-        cursor: pointer;
         padding: 0.5em;
-        color: black;
         font-size: 1.3rem;
         font-weight: 700;
-        text-transform: uppercase;
-        text-decoration: none;
-        &:hover {
-            background: darken($color: color(accent), $amount: 10%);
-        }
     }
     .extra-details {
         display: flex;
