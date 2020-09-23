@@ -42,6 +42,8 @@ header {
       margin: 0;
       display: flex;
       li a {
+        @extend .transition-time;
+        @extend .default-border-radius;
         padding: 1em;
         text-decoration: none;
         color: white;
@@ -77,10 +79,15 @@ header {
 }
 
 .searchBar {
+  @extend .transition-time;
+  @extend .default-border-radius;
+
   background-color: $highlight;
   padding: 0.5em 1em;
   margin: 0.2em 1em;
+
   flex: 1 0 auto;
+
   display: flex;
   align-items: center;
   .searchbar-icon {
@@ -97,6 +104,9 @@ header {
 }
 
 .account-icon-section {
+  @extend .transition-time;
+  @extend .default-border-radius;
+
   padding: 0.3em;
   font-size: 0.9rem;
   display: flex;
@@ -107,6 +117,7 @@ header {
   .account-icon {
     width: 2.4em;
   }
+
   &:hover {
     background-color: $highlight;
   }
