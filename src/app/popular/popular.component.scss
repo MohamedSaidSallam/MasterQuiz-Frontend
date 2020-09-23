@@ -30,21 +30,11 @@
 
       font-size: 1.5rem;
       text-transform: capitalize;
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
     }
     p {
       margin: 0 auto;
 
       font-size: 0.9rem;
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
     }
     .tags {
       margin-top: 0.35em;
@@ -52,11 +42,6 @@
       font-size: 0.8rem;
       font-family: "Roboto Mono", sans-serif;
       color: color(accent);
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
     }
   }
 

@@ -3,9 +3,9 @@
   <div *ngFor="let quiz of quizzes" (click)="detailedViewVisible=true; selectedQuiz=quiz" class="card">
     <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
     <div class="text-area">
-      <h3>{{quiz.name}}</h3>
-      <p>{{quiz.description}}</p>
-      <p class="tags">{{quiz.genres.join(',')}}</p>
+      <h3 class="two-line-text-trim">{{quiz.name}}</h3>
+      <p class="three-line-text-trim">{{quiz.description}}</p>
+      <p class="tags one-line-text-trim">{{quiz.genres.join(',')}}</p>
     </div>
   </div>
 </div>

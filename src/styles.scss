@@ -48,11 +48,22 @@ h1 {
   font-style: italic;
 }
 
-.one-line-text-trim {
+.x-line-text-trim {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
   overflow: hidden;
+}
+.one-line-text-trim {
+  @extend .x-line-text-trim;
+  -webkit-line-clamp: 1;
+}
+.two-line-text-trim {
+  @extend .x-line-text-trim;
+  -webkit-line-clamp: 2;
+}
+.three-line-text-trim {
+  @extend .x-line-text-trim;
+  -webkit-line-clamp: 3;
 }
 
 .material-icons {
