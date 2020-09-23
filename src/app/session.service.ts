@@ -16,7 +16,7 @@ export class SessionService {
 
   constructor(private code: string) {
     this.room = new SocketNameSpace({
-      url: `http://localhost:3000/session/${code}`,
+      url: `https://masterquiz-backend.herokuapp.com/session/${code}`,
     });
   }
 
