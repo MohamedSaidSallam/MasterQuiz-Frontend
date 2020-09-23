@@ -20,4 +20,8 @@ export class GenresComponent implements OnInit {
       this.genres = [...new Set(this.genres)];
     });
   }
+
+  genreOnClick(genre): void {
+    alert(`"${genre}" clicked. WIP`);
+  }
 }
