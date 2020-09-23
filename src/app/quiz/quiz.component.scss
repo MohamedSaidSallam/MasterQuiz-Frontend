@@ -1,21 +1,20 @@
 @import "../../styles.scss";
 
-h1 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-}
-
 .questions-area {
   width: 50%;
   margin: 0 auto;
+
+  padding-left: 1em;
+  padding-right: 1.5em;
 
   h2 {
     font-size: 1.8rem;
     margin-top: 0;
   }
   .choice {
+    @extend .transition-time;
+    @extend .default-border-radius;
+
     margin: 0.5em 0;
 
     background: color(accent);
@@ -29,6 +28,8 @@ h1 {
     &:hover {
       background: darken($color: color(accent), $amount: 10%);
       border-left: color(blue) 0.5em solid;
+
+      transform: translate(1em, 0);
     }
   }
 }

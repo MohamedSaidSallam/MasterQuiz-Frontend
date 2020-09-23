@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 $colors: (
   primary: rgba(94, 76, 138, 1),
@@ -12,6 +12,8 @@ $colors: (
 );
 
 $border-radius: 0.2em;
+$transition-time: 0.19s;
+$button-hover-transition-time: 0.19s; // ! TEMP
 
 @function color($color-name) {
   @return map-get($colors, $color-name);
@@ -37,9 +39,9 @@ h1 {
 }
 
 .black-background {
+  @extend .default-border-radius;
   padding: 0.5em;
   background: rgba($color: #000000, $alpha: 0.2);
-  border-radius: $border-radius;
 }
 
 .stat-highlight {
@@ -58,7 +60,17 @@ h1 {
   user-select: none;
 }
 
+.transition-time {
+  transition: $transition-time;
+}
+.default-border-radius {
+  border-radius: $border-radius;
+}
+
 .link-button {
+  @extend .transition-time;
+  @extend .default-border-radius;
+
   background-color: color(accent);
 
   text-decoration: none;
