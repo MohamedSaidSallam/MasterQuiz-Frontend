@@ -1,4 +1,4 @@
-<h1>Genres</h1>
+<h1 class="page-header-entrance">Genres</h1>
 <div class="genres-grid">
   <ng-template [ngIf]="genres" [ngIfElse]="genresNotLoaded">
     <div *ngFor="let genre of genres" class="grid-item grid-item-hover" (click)="genreOnClick(genre)"><span

@@ -1,4 +1,3 @@
-
 $colors: (
   primary: rgba(94, 76, 138, 1),
   primary-light: lighten(rgba(94, 76, 138, 1), 40%),
@@ -98,5 +97,19 @@ h1 {
 @keyframes loading-animation {
   50% {
     opacity: 0.4;
+  }
+}
+
+.page-header-entrance {
+  animation: page-header-entrance-animation 0.35s forwards ease;
+}
+@keyframes page-header-entrance-animation{
+  0%{
+    transform: translateX(-0.2em);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
   }
 }

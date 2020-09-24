@@ -1,4 +1,4 @@
-<h1>Popular Quizzes</h1>
+<h1 class="page-header-entrance">Popular Quizzes</h1>
 <div class="card-grid">
   <ng-template [ngIf]="quizzes" [ngIfElse]="quizzesNotLoaded">
     <div *ngFor="let quiz of quizzes" (click)="detailedViewVisible=true; selectedQuiz=quiz" class="card">
