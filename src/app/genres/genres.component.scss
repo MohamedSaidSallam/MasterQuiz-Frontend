@@ -38,8 +38,3 @@
   transition: none;
   animation: loading-animation 1.5s infinite ease-in-out;
 }
-@keyframes loading-animation {
-  50% {
-    opacity: 0.5;
-  }
-}

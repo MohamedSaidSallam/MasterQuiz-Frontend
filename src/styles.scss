@@ -94,3 +94,9 @@ h1 {
     background: darken($color: color(accent), $amount: 10%);
   }
 }
+
+@keyframes loading-animation {
+  50% {
+    opacity: 0.4;
+  }
+}
