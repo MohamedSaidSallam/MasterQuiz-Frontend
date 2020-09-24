@@ -69,12 +69,16 @@
 }
 
 .scores-remaining-list {
+  @extend .default-border-radius;
+
   width: 50%;
   margin: 1em auto;
 
   list-style-type: none;
 
   .remaining-list-entry {
+    @extend .transition-time;
+    @extend .default-border-radius;
     display: flex;
     gap: 0.5em;
 
@@ -108,9 +112,12 @@
     cursor: pointer;
   }
   svg {
+    @extend .transition-time;
+
     fill: white;
     width: 110%;
     height: auto;
+
     &:hover {
       fill: color(accent);
     }
