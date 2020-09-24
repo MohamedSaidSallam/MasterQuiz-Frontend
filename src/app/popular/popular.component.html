@@ -1,13 +1,25 @@
 <h1>Popular Quizzes</h1>
 <div class="card-grid">
-  <div *ngFor="let quiz of quizzes" (click)="detailedViewVisible=true; selectedQuiz=quiz" class="card">
-    <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
-    <div class="text-area">
-      <h3 class="two-line-text-trim">{{quiz.name}}</h3>
-      <p class="three-line-text-trim">{{quiz.description}}</p>
-      <p class="tags one-line-text-trim">{{quiz.genres.join(',')}}</p>
+  <ng-template [ngIf]="quizzes" [ngIfElse]="quizzesNotLoaded">
+    <div *ngFor="let quiz of quizzes" (click)="detailedViewVisible=true; selectedQuiz=quiz" class="card">
+      <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+      <div class="text-area">
+        <h3 class="two-line-text-trim">{{quiz.name}}</h3>
+        <p class="three-line-text-trim">{{quiz.description}}</p>
+        <p class="tags one-line-text-trim">{{quiz.genres.join(',')}}</p>
+      </div>
     </div>
-  </div>
+  </ng-template>
+  <ng-template #quizzesNotLoaded>
+    <div class="card card-loading">
+      <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+      <div class="text-area">
+        <h3>Loading Quizzes</h3>
+        <p>Loading Quizzes...</p>
+        <p>Loading Quizzes...</p>
+      </div>
+    </div>
+  </ng-template>
 </div>
 
 <div [style.visibility]="this.detailedViewVisible ? 'visible' : 'hidden'" (click)="detailedViewVisible=false"
