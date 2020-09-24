@@ -57,7 +57,27 @@
 }
 .gold-trophy {
   color: rgba($color: gold, $alpha: 1);
+
+  animation: gold-animation 1.1s infinite linear forwards;
 }
+@keyframes gold-animation{
+  0%{
+      transform: rotate(0);
+      }
+  25%{
+      transform: rotate(-25deg);
+      }
+  50%{
+      transform: rotate(0);
+      }
+  75%{
+      transform: rotate(25deg);
+      }
+  100%{
+      transform: rotate(0);
+      }
+}
+
 .silver-trophy {
   color: rgba($color: silver, $alpha: 1);
 }
