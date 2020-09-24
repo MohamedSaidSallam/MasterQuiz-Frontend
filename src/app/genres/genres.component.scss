@@ -12,7 +12,6 @@
   @extend .transition-time;
   @extend .default-border-radius;
 
-  cursor: pointer;
   background: color(accent);
   padding: 0.7em 1em 0.3em 1em;
 
@@ -23,10 +22,24 @@
     text-transform: capitalize;
     color: black;
   }
+}
+
+.grid-item-hover {
+  cursor: pointer;
 
   &:hover {
     background: darken($color: color(accent), $amount: 8%);
     border-color: color(blue);
     transform: translateY(-0.5em);
+  }
+}
+
+.loading-genre {
+  transition: none;
+  animation: loading-animation 1.5s infinite ease-in-out;
+}
+@keyframes loading-animation {
+  50% {
+    opacity: 0.5;
   }
 }
