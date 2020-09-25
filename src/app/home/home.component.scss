@@ -3,26 +3,74 @@
 .home-container {
   width: 90%;
   margin: 0 auto;
+
   display: flex;
   align-items: center;
-  margin-top: 5em;
+  margin-top: 10em;
   gap: 0.3em;
 }
+
+$entrance-animation-time: 0.6s;
+$button-entrance-animation-time: 1s;
+$entrance-animation-timing-function: ease-in-out;
+
+$jump-text-animation-time: 7s;
+$jump-text-animation-timing-function: ease;
+
 h1 {
   font-weight: 700;
   font-size: 4rem;
   margin: 0.5em auto;
   margin-top: 0;
+
+  span {
+    display: inline-block;
+  }
   .fun {
     color: color(blue);
+
+    animation: text-jump $jump-text-animation-time 3.5s forwards infinite
+      $jump-text-animation-timing-function;
   }
   .quizzes {
     color: color(accent);
+
+    animation: text-jump $jump-text-animation-time 4s forwards infinite
+      $jump-text-animation-timing-function;
   }
   .friends {
     color: color(green);
+
+    animation: text-jump $jump-text-animation-time 4.5s forwards infinite
+      $jump-text-animation-timing-function;
+  }
+
+  animation: header-entrance $entrance-animation-time forwards
+    $entrance-animation-timing-function;
+}
+
+@keyframes text-jump {
+  0% {
+    transform: translateY(0);
+  }
+  5% {
+    transform: translateY(-0.3em);
+  }
+  10% {
+    transform: translateY(0);
   }
 }
+@keyframes header-entrance {
+  0% {
+    transform: translateX(-0.75em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .subsection {
   margin-left: 1em;
 
@@ -32,16 +80,34 @@ h1 {
     .realtime {
       color: color(green);
     }
+
+    animation: subtext-entrance $entrance-animation-time forwards
+      $entrance-animation-timing-function;
   }
-  button {
-    background-color: color(accent);
-    border: none;
-    padding: 1em;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    &:hover {
-      background: darken($color: color(accent), $amount: 10%);
-    }
+  .call-to-action {
+    @extend .link-button;
+
+    transition-property: background;
+
+    animation: button-entrance $button-entrance-animation-time forwards $entrance-animation-timing-function;
+  }
+}
+
+@keyframes subtext-entrance {
+  0% {
+    transform: translateY(-0.75em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes button-entrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
