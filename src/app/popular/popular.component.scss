@@ -66,8 +66,17 @@
   top: 0;
   left: 0;
 
-  display: flex;
+  // display: flex; // bound in html
   align-items: center;
+
+  opacity: 0;
+  animation: overlay-entrance-animation 0.3s forwards ease;
+}
+@keyframes overlay-entrance-animation{
+  100%{
+    opacity: 1;
+
+  }
 }
 
 .overlay-background {
@@ -136,5 +145,11 @@
 
       transition-property: background;
     }
+  }
+  animation: overlay-content-entrance 0.3s ease forwards;
+}
+@keyframes overlay-content-entrance {
+  100%{
+    transform: translateY(-0.5em);
   }
 }

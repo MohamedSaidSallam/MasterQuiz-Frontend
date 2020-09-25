@@ -22,7 +22,7 @@
   </ng-template>
 </div>
 
-<div [style.visibility]="this.detailedViewVisible ? 'visible' : 'hidden'" (click)="detailedViewVisible=false"
+<div [style.display]="this.detailedViewVisible ? 'flex' : 'none'" (click)="detailedViewVisible=false"
   class="black-overlay">
   <div *ngIf="selectedQuiz" (click)="$event.stopPropagation()" class="overlay-background">
     <div class="first-Col">
