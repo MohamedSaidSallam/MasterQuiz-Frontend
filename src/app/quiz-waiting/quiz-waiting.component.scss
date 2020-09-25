@@ -1,132 +1,132 @@
 @import "../../styles.scss";
 .container {
-    display: flex;
-    max-width: 100%;
-    gap: 1em;
-    margin-bottom: 1.5em;
+  display: flex;
+  max-width: 100%;
+  gap: 1em;
+  margin-bottom: 1.5em;
 }
 
 h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
-.invitation-code-area{
-    margin-top: 1em;
+.invitation-code-area {
+  margin-top: 1em;
 }
 
 .invitation-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
 
-    .inv-code-text{
-        color: color(blue);
-    }
+  .inv-code-text {
+    color: color(blue);
+  }
 }
-.copy-inv-icon{
-    @extend .transition-time;
-    @extend .default-border-radius;
+.copy-inv-icon {
+  @extend .transition-time;
+  @extend .default-border-radius;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    display: inline-block;
+  display: inline-block;
 
-    &:hover {
-        background: rgba($color: color(accent), $alpha: 0.5);
-    }
+  &:hover {
+    background: rgba($color: color(accent), $alpha: 0.5);
+  }
 }
 
 .participants-area {
-    flex: 1 2 auto;
-    .participant {
-        @extend .transition-time;
-        @extend .default-border-radius;
+  flex: 1 2 auto;
+  .participant {
+    @extend .transition-time;
+    @extend .default-border-radius;
 
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-        padding: 0.2em;
-        .tempImg {
-            flex-shrink: 0;
-            width: 2em;
-            height: 2em;
-            background: pink;
-        }
-        h4 {
-            margin: 0;
-        }
-
-        &:hover {
-            background: rgba($color: color(accent), $alpha: 0.5);
-        }
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.2em;
+    .tempImg {
+      flex-shrink: 0;
+      width: 2em;
+      height: 2em;
+      background: pink;
     }
+    h4 {
+      margin: 0;
+    }
+
+    &:hover {
+      background: rgba($color: color(accent), $alpha: 0.5);
+    }
+  }
 }
 
 .info-area {
-    flex: 2 1 auto;
+  flex: 2 1 auto;
 }
 
 .info-background {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  img {
+    @extend .default-border-radius;
+
+    max-width: 100%;
+  }
+  p {
+    margin: 0;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 0.2em;
+  }
+  .description {
+    font-size: 1.5rem;
+    text-align: justify;
+    padding-right: 1em;
+    margin: 0;
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+  .genres {
+    font-style: italic;
+    color: lightgray;
+    font-size: 1rem;
+  }
+  .stat-highlight {
+    color: color(blue);
+  }
+  .hash {
+    font-size: 2rem;
+    vertical-align: middle;
+  }
+  .start-button {
+    @extend .link-button;
+
+    margin-top: 2em;
+    padding: 0.5em;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .extra-details {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1em;
-    img {
-        @extend .default-border-radius;
-
-        max-width: 100%;
-    }
     p {
-        margin: 0;
+      vertical-align: middle;
     }
-    h3 {
-        font-weight: 700;
-        font-size: 2.5rem;
-        margin: 0.2em;
-    }
-    .description {
-        font-size: 1.5rem;
-        text-align: justify;
-        padding-right: 1em;
-        margin: 0;
-        max-height: 55vh;
-        overflow-y: auto;
-    }
-    .genres {
-        font-style: italic;
-        color: lightgray;
-        font-size: 1rem;
-    }
-    .stat-highlight {
-        color: color(blue);
-    }
-    .hash {
-        font-size: 2rem;
-        vertical-align: middle;
-    }
-    .start-button {
-        @extend .link-button;
-
-        margin-top: 2em;
-        padding: 0.5em;
-        font-size: 1.3rem;
-        font-weight: 700;
-    }
-    .extra-details {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-        p {
-            vertical-align: middle;
-        }
-    }
+  }
 }
 
 .chat-area {
-    flex: 2 1 auto;
-    .tempChat {
-        width: 20vw;
-        height: 55vh;
-        background: pink;
-    }
+  flex: 2 1 auto;
+  .tempChat {
+    width: 20vw;
+    height: 55vh;
+    background: pink;
+  }
 }
