@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { Location } from '@angular/common';
+import { Participant } from '../model/Participant'
+import { SessionService } from '../session.service'
 
 @Component({
   selector: 'app-quiz',
@@ -9,12 +11,17 @@ import { Location } from '@angular/common';
 })
 export class QuizComponent implements OnInit {
   quiz: any;
+  participants: Participant[];
+  sessionService: SessionService;
   currentQuestion = 0;
 
-  constructor(private location: Location, private router: Router) {}
+  constructor(private location: Location, private router: Router) { }
 
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
+    this.participants = this.location.getState()['participants'];
+    const sessionCode = this.location.getState()['sessionCode'];
+    this.sessionService = new SessionService(sessionCode);
     if (this.quiz === undefined) {
       this.router.navigateByUrl('/PageNotFound');
     }
@@ -23,7 +30,7 @@ export class QuizComponent implements OnInit {
   nextQuestion(choice: string): void {
     this.currentQuestion++;
     if (this.currentQuestion >= this.quiz.questions.length) {
-      this.router.navigateByUrl('/quiz_score', {state: {quiz: this.quiz}});
+      this.router.navigateByUrl('/quiz_score', { state: { quiz: this.quiz } });
     }
   }
 }

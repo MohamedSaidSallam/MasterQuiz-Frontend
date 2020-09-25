@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const API_ENDPOINT = 'https://masterquiz-backend.herokuapp.com/api/';
@@ -14,6 +14,11 @@ export class BackendService {
   getQuizzes(): Observable<object> {
     return this.http.get(API_ENDPOINT + API_ENDPOINT_QUIZZES);
   }
+
+  getOneQuiz(quizId: string): Observable<object> {
+    return this.http.get(API_ENDPOINT + API_ENDPOINT_QUIZZES + quizId)
+  }
+
   getSessionCode(): Observable<object> {
     return this.http.get(API_ENDPOINT + API_ENDPOINT_SESSION_CODE);
   }

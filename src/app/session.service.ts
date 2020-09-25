@@ -20,19 +20,70 @@ export class SessionService {
     });
   }
 
-  foo(): void {
+  foo() {
+    console.log('foo');
     this.room.emit('answer', 'hi ana msg');
   }
 
   public sendMessage(message): void {
     this.room.emit('msg', message);
   }
+  public addParticipant(participant) {
+    this.room.emit('addParticipant', participant);
+  }
 
+  public sendQuizId(quizId) {
+    this.room.emit('sendQuizId', quizId);
+  }
+
+  public toggleReady(hash: string) {
+    this.room.emit('toggleReady', hash);
+  }
   public getMessages = () => {
     return Observable.create((observer) => {
       this.room.on('msg', (message) => {
         observer.next(message);
       });
     });
-  }
+  };
+
+  public participantAdded = () => {
+    return Observable.create((observer) => {
+      this.room.on('participantAdded', (participant) => {
+        observer.next(participant);
+      });
+    });
+  };
+
+  public oldParticipants = () => {
+    return Observable.create((observer) => {
+      this.room.on('oldParticipants', (participants) => {
+        observer.next(participants);
+      });
+    });
+  };
+
+  public readyToggled = () => {
+    return Observable.create((observer) => {
+      this.room.on('toggleReady', (hash) => {
+        observer.next(hash);
+      });
+    });
+  };
+
+  public quizAnimationStarted = () => {
+    return Observable.create((observer) => {
+      this.room.on('startQuizAnimation', () => {
+        observer.next();
+      });
+    });
+  };
+
+  public quizStarted = () => {
+    return Observable.create((observer) => {
+      this.room.on('startQuiz', () => {
+        observer.next();
+      });
+    });
+  };
 }

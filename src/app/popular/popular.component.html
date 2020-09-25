@@ -38,7 +38,7 @@
       <h3>{{selectedQuiz.name}}</h3>
       <p class="description">{{selectedQuiz.description}}</p>
       <p class="genres">{{selectedQuiz.genres.join(', ')}}</p>
-      <a class="create-room-button" href="#" routerLink='/quiz_waiting' [state]="{quiz: selectedQuiz}">Create Room</a>
+      <a class="start-button" (click)="openQuizWaitingRoom()">Create Room</a>
     </div>
   </div>
 </div>
