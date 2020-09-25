@@ -21,7 +21,6 @@ export class SessionService {
   }
 
   foo() {
-    console.log('foo');
     this.room.emit('answer', 'hi ana msg');
   }
 
