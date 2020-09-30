@@ -113,3 +113,16 @@ h1 {
     opacity: 1;
   }
 }
+.page-section-entrance {
+  animation: page-section-entrance-animation 0.35s forwards ease;
+}
+@keyframes page-section-entrance-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1em);
+    opacity: 1;
+  }
+}

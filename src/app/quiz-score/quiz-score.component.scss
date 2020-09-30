@@ -1,11 +1,23 @@
 @import "../../styles.scss";
 
+$section-entrance-animation-base-delay: 0.5s;
+$section-entrance-animation-delay-increment: 0.5s;
+
+.content-entrance{
+  @extend .page-section-entrance;
+  animation-duration: 0.65s;
+}
+
 .scores {
   text-align: center;
 
   margin: 5em 0;
 
   .user-score {
+    @extend .content-entrance;
+    animation-delay: $section-entrance-animation-base-delay;
+    opacity: 0;
+
     margin: 0 auto;
     margin-bottom: 3em;
 
@@ -21,6 +33,11 @@
     }
   }
   .top-three-list {
+    @extend .content-entrance;
+    animation-delay: $section-entrance-animation-base-delay +
+      (1 * $section-entrance-animation-delay-increment);
+    opacity: 0;
+
     display: grid;
     grid-template-columns: 5fr repeat(2, 3fr);
     column-gap: 1em;
@@ -60,22 +77,22 @@
 
   animation: gold-animation 1.1s infinite linear forwards;
 }
-@keyframes gold-animation{
-  0%{
-      transform: rotate(0);
-      }
-  25%{
-      transform: rotate(-25deg);
-      }
-  50%{
-      transform: rotate(0);
-      }
-  75%{
-      transform: rotate(25deg);
-      }
-  100%{
-      transform: rotate(0);
-      }
+@keyframes gold-animation {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 
 .silver-trophy {
@@ -90,6 +107,11 @@
 
 .scores-remaining-list {
   @extend .default-border-radius;
+
+  @extend .content-entrance;
+  animation-delay: $section-entrance-animation-base-delay +
+    (2 * $section-entrance-animation-delay-increment);
+  opacity: 0;
 
   width: 50%;
   margin: 1em auto;
@@ -124,6 +146,11 @@
 }
 
 .share-results {
+  @extend .content-entrance;
+  animation-delay: $section-entrance-animation-base-delay +
+    (3 * $section-entrance-animation-delay-increment);
+  opacity: 0;
+
   display: flex;
   gap: 0.4em;
   align-items: center;
@@ -145,6 +172,11 @@
 }
 
 .full-details-area {
+  @extend .content-entrance;
+  animation-delay: $section-entrance-animation-base-delay +
+    (4 * $section-entrance-animation-delay-increment);
+  opacity: 0;
+
   margin: 1em 0;
 
   summary {
