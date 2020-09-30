@@ -13,17 +13,16 @@ export class QuizComponent implements OnInit {
   quiz: any;
   participants: Participant[];
   thisParticipant: Participant;
-  sessionService: SessionService;
   currentQuestion = 0;
 
-  constructor(private location: Location, private router: Router) { }
+  constructor(private location: Location, private router: Router, private sessionService: SessionService) { }
 
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
     this.participants = this.location.getState()['participants'];
     this.thisParticipant = this.location.getState()['thisParticipant'];
     const sessionCode = this.location.getState()['sessionCode'];
-    this.sessionService = new SessionService(sessionCode);
+    this.sessionService = new SessionService();
     if (this.quiz === undefined) {
       this.router.navigateByUrl('/PageNotFound');
     }

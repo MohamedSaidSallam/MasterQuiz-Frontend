@@ -18,7 +18,7 @@ export class QuizWaitingComponent implements OnInit {
   invitationCode: string;
   messages: string[] = [];
 
-  private sessionService: SessionService;
+  // private sessionService: SessionService;
   thisParticipant: Participant = null;
   participants: Participant[] = [];
 
@@ -29,6 +29,7 @@ export class QuizWaitingComponent implements OnInit {
   countdown = 5;
 
   constructor(private backendService: BackendService,
+    private sessionService: SessionService,
     private route: ActivatedRoute,
     private _router: Router) { }
 
@@ -51,7 +52,7 @@ export class QuizWaitingComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.invitationCode = params["invitationCode"];
       this.quizId = params["quiz"];
-      this.sessionService = new SessionService(this.invitationCode);
+      this.sessionService.setRoomCode(this.invitationCode);
       this.thisParticipant = { name: this.userName, isReady: false, 
         hash: this.random6alphanum() , answerLocked: false}
       this.sessionService.addParticipant(this.thisParticipant);
