@@ -101,6 +101,7 @@ h1 {
 }
 
 .page-header-entrance {
+  opacity: 0;
   animation: page-header-entrance-animation 0.35s forwards ease;
 }
 @keyframes page-header-entrance-animation{

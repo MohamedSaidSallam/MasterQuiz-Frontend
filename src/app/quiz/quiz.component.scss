@@ -1,6 +1,10 @@
 @import "../../styles.scss";
 
 .questions-area {
+  @extend .page-section-entrance;
+  animation-delay: 0.5s;
+  opacity: 0;
+
   width: 50%;
   margin: 0 auto;
 
