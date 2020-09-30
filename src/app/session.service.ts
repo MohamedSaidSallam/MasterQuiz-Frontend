@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Socket, SocketIoConfig } from 'ngx-socket-io';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
+const env = environment;
 
 export class SocketNameSpace extends Socket {
   constructor(socketConfig: SocketIoConfig) {
@@ -15,9 +17,7 @@ export class SessionService {
   room: SocketNameSpace;
 
   constructor(private code: string) {
-    this.room = new SocketNameSpace({
-      url: `https://masterquiz-backend.herokuapp.com/session/${code}`,
-    });
+    this.room = new SocketNameSpace({ url: `${env.apiEndpoint}session/${code}` });
   }
 
   foo() {

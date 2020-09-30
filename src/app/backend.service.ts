@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
+const env = environment;
 
-const API_ENDPOINT = 'https://masterquiz-backend.herokuapp.com/api/';
+const API_ENDPOINT = `${env.apiEndpoint}api/`;
 const API_ENDPOINT_QUIZZES = 'quizzes/';
 const API_ENDPOINT_SESSION_CODE = 'sessionCode/';
 
