@@ -70,9 +70,17 @@ export class SessionService {
     });
   };
 
-  public quizAnimationStarted = () => {
+  public quizCountdownStarted = () => {
     return Observable.create((observer) => {
-      this.room.on('startQuizAnimation', () => {
+      this.room.on('startQuizCountdown', () => {
+        observer.next();
+      });
+    });
+  };
+
+  public quizCountdownStopped = () => {
+    return Observable.create((observer) => {
+      this.room.on('cancelQuizCountdown', () => {
         observer.next();
       });
     });

@@ -15,13 +15,18 @@ export class QuizWaitingComponent implements OnInit {
   quiz: any;
   quizId: string;
   userName: string;
-  isReady: boolean = false;
   invitationCode: string;
   messages: string[] = [];
 
   private sessionService: SessionService;
   thisParticipant: Participant = null;
   participants: Participant[] = [];
+
+  isCountdownShown = false;
+  isCountdownTimeShown = true;
+  countdownTimeouts: number[] = [];
+  QUIZ_START_COUNTDOWN = 5;
+  countdown = 5;
 
   constructor(private backendService: BackendService,
     private route: ActivatedRoute,
@@ -33,6 +38,7 @@ export class QuizWaitingComponent implements OnInit {
 
   toggleReady() {
     if (this.thisParticipant) {
+      this.thisParticipant.isReady = !this.thisParticipant.isReady;
       this.sessionService.toggleReady(this.thisParticipant.hash)
     }
   }
@@ -78,7 +84,6 @@ export class QuizWaitingComponent implements OnInit {
     this.sessionService
       .oldParticipants()
       .subscribe((oldParticipants: any[]) => {
-        console.log(oldParticipants);
         this.participants.unshift(...oldParticipants);
       });
 
@@ -88,6 +93,33 @@ export class QuizWaitingComponent implements OnInit {
         const participant = this.participants
           .find(participant => participant.hash === hash);
         participant.isReady = !participant.isReady;
+      });
+
+    this.sessionService
+      .quizCountdownStarted()
+      .subscribe(() => {
+        this.isCountdownShown = true;
+        this.countdown = this.QUIZ_START_COUNTDOWN;
+        for (let i = 1; i <= this.QUIZ_START_COUNTDOWN; i++) {
+          const timeout = setTimeout(() => {
+            this.isCountdownTimeShown = false;
+            setTimeout(() => {
+              this.countdown = (this.QUIZ_START_COUNTDOWN - i);
+              this.isCountdownTimeShown = true;
+            }, 20);
+          }, 1000 * i);
+          this.countdownTimeouts.push(timeout);
+        }
+      });
+
+    this.sessionService
+      .quizCountdownStopped()
+      .subscribe(() => {
+        this.isCountdownShown = false;
+        this.countdownTimeouts.forEach(element => {
+          clearTimeout(element);
+        });
+        this.countdownTimeouts = [];
       });
 
     this.sessionService

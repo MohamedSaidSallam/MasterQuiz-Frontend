@@ -46,7 +46,12 @@
                     <p title="Number Of Questions"><span class="hash"> # </span> Questions <span class="stat-highlight">{{quiz.questions.length}}</span></p>
                     <p title="Times Answered"><span class="hash"> # </span> Answers <span class="stat-highlight">{{quiz.timesAnswered}}</span></p>
                 </div>
-                <a class="start-button" (click)="toggleReady()">READY</a>
+                <a class="start-button" (click)="toggleReady()"
+                  [style.color]="thisParticipant.isReady ? 'dimgray' : ''">
+                  {{thisParticipant.isReady ?
+                    (isCountdownShown ? 'STARTING...' : 'WAITING FOR OTHERS.. (click to un-ready)')
+                    : 'READY'}}
+                </a>
             </ng-template>
             <ng-template #quizLoading>
                 <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
@@ -60,4 +65,8 @@
             <div class="tempChat"></div>
         </div>
     </div>
+</div>
+<div [style.display]="isCountdownShown ? 'block':'none'" class="black-background countdown">
+  <span class="starting-in">Starting in..</span>
+  <span [style.animation]="isCountdownTimeShown ? '':'none'" class="countdown-time">{{countdown}}</span>
 </div>
