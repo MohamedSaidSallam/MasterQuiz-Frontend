@@ -50,7 +50,7 @@ export class QuizScoreComponent implements OnInit {
       (item) => item.name === this.currentParticipantName
     );
     this.topThreeParticipants = this.participants.slice(0, 3).entries();
-    this.remainingParticipants = this.participants.slice(0, 3).entries();
+    this.remainingParticipants = this.participants.slice(3).entries();
   }
 
   getTrophyClass(index: number): string {
