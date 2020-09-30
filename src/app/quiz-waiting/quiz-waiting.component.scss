@@ -1,6 +1,5 @@
 @import "../../styles.scss";
 
-$section-entrance-animation: section-entrance 0.5s ease forwards;
 $section-entrance-animation-base-delay: 0.2s;
 $section-entrance-animation-delay-increment: 0.5s;
 
@@ -67,14 +66,16 @@ h2 {
     }
   }
   opacity: 0;
-  animation: $section-entrance-animation $section-entrance-animation-base-delay;
+  @extend .page-section-entrance;
+  animation-delay: $section-entrance-animation-base-delay;
 }
 
 .info-area {
   flex: 2 1 auto;
 
+  @extend .page-section-entrance;
   opacity: 0;
-  animation: $section-entrance-animation $section-entrance-animation-base-delay +
+  animation-delay: $section-entrance-animation-base-delay +
     $section-entrance-animation-delay-increment;
 }
 
@@ -142,19 +143,9 @@ h2 {
   }
 
   opacity: 0;
-  animation: $section-entrance-animation $section-entrance-animation-base-delay +
+  @extend .page-section-entrance;
+  animation-delay: $section-entrance-animation-base-delay +
     (2 * $section-entrance-animation-delay-increment);
-}
-
-@keyframes section-entrance {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-1em);
-    opacity: 1;
-  }
 }
 
 .countdown {
