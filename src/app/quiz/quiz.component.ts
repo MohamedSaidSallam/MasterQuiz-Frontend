@@ -12,6 +12,7 @@ import { SessionService } from '../session.service'
 export class QuizComponent implements OnInit {
   quiz: any;
   participants: Participant[];
+  thisParticipant: Participant;
   sessionService: SessionService;
   currentQuestion = 0;
 
@@ -20,17 +21,53 @@ export class QuizComponent implements OnInit {
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
     this.participants = this.location.getState()['participants'];
+    this.thisParticipant = this.location.getState()['thisParticipant'];
     const sessionCode = this.location.getState()['sessionCode'];
     this.sessionService = new SessionService(sessionCode);
     if (this.quiz === undefined) {
       this.router.navigateByUrl('/PageNotFound');
     }
+
+    this.sessionService
+      .answerLocked()
+      .subscribe((participantHash: string) => {
+        // todo UI
+        const participant = this.participants
+          .find(participant => participant.hash === participantHash);
+        participant.answerLocked = true;
+      });
+
+      this.sessionService
+      .allAnswered()
+      .subscribe((answers) => {
+        this.nextQuestion(answers);
+      });
+
   }
 
-  nextQuestion(choice: string): void {
+  nextQuestion(answers): void {
+
+    // todo show answers animation before this
+
+    for (const participant of this.participants){
+      participant.answerLocked = false;
+    }
+
     this.currentQuestion++;
+
     if (this.currentQuestion >= this.quiz.questions.length) {
       this.router.navigateByUrl('/quiz_score', { state: { quiz: this.quiz } });
     }
   }
+
+  
+  submitAnswer(choice: string): void {
+    this.sessionService.submitAnswer(choice);
+    if (this.currentQuestion >= this.quiz.questions.length) {
+      this.router.navigateByUrl('/quiz_score', { state: { quiz: this.quiz } });
+    }
+  }
+
+  
+
 }

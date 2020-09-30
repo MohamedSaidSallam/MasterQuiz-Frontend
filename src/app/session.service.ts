@@ -38,6 +38,11 @@ export class SessionService {
   public toggleReady(hash: string) {
     this.room.emit('toggleReady', hash);
   }
+  
+  public submitAnswer(answer: string) {
+    this.room.emit('answer', answer);
+  }
+
   public getMessages = () => {
     return Observable.create((observer) => {
       this.room.on('msg', (message) => {
@@ -45,6 +50,22 @@ export class SessionService {
       });
     });
   };
+
+  public answerLocked = () => {
+    return Observable.create((observer) => {
+      this.room.on('answerLocked', (ParticipantHash) => {
+        observer.next(ParticipantHash);
+      });
+    });
+  }
+
+  public allAnswered = () => {
+    return Observable.create((observer) => {
+      this.room.on('allAnswered', (answers) => {
+        observer.next(answers);
+      });
+    });
+  }
 
   public participantAdded = () => {
     return Observable.create((observer) => {

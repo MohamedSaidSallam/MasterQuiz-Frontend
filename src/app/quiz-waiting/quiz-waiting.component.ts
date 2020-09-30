@@ -52,7 +52,8 @@ export class QuizWaitingComponent implements OnInit {
       this.invitationCode = params["invitationCode"];
       this.quizId = params["quiz"];
       this.sessionService = new SessionService(this.invitationCode);
-      this.thisParticipant = { name: this.userName, isReady: false, hash: this.random6alphanum() }
+      this.thisParticipant = { name: this.userName, isReady: false, 
+        hash: this.random6alphanum() , answerLocked: false}
       this.sessionService.addParticipant(this.thisParticipant);
       this.sessionService.sendQuizId(this.quizId);
       this.sessionService.foo();
@@ -129,6 +130,7 @@ export class QuizWaitingComponent implements OnInit {
           state: {
             quiz: this.quiz,
             participants: this.participants,
+            thisParticipant: this.thisParticipant,
             sessionCode: this.invitationCode
           }
         });

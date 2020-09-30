@@ -1,8 +1,8 @@
 <div class="container">
-  <h1 class="one-line-text-trim page-header-entrance">{{quiz.name}}</h1>
-  <div class="questions-area black-background">
-    <h2>{{quiz.questions[currentQuestion].title}}</h2>
-    <div *ngFor="let choice of quiz.questions[currentQuestion].choices" (click)="nextQuestion(choice)" class="choice">
-      {{choice}}</div>
-  </div>
+    <h1>{{quiz.name}}</h1>
+    <div class="questions-area black-background">
+        <h2>{{quiz.questions[currentQuestion].title}}</h2>
+        <div *ngFor="let choice of quiz.questions[currentQuestion].choices" (click)="submitAnswer(choice)" class="choice">
+            {{choice}}</div>
+    </div>
 </div>
