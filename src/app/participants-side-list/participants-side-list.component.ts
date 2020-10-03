@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ParticipantsSideListComponent implements OnInit {
   @Input() participants: any[];
+  @Input() showCheckbox = true;
 
   constructor() { }
 
