@@ -1,0 +1,18 @@
+<div class="black-background">
+  <ng-template [ngIf]="participants.length !== 0" [ngIfElse]="participantsLoading">
+    <div *ngFor="let participant of participants" class="participant">
+      <div class="tempImg"></div>
+      <i *ngIf="participant.isReady; else elseBlock" class="material-icons">check_box</i>
+      <ng-template #elseBlock>
+        <i class="material-icons">check_box_outline_blank</i>
+      </ng-template>
+      <h4 class="one-line-text-trim" title="{{participant.name}}">
+        {{participant.name}}</h4>
+    </div>
+  </ng-template>
+  <ng-template #participantsLoading>
+    <div class="participant">
+      <h4 title="loading..."> loading...</h4>
+    </div>
+  </ng-template>
+</div>
