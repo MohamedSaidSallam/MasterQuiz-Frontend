@@ -29,14 +29,14 @@ export class QuizComponent implements OnInit {
   }
 
   nextQuestion(choice: string): void {
-    this.currentQuestion++;
+    this.animateQuestion = false;
+    setTimeout(() => {
+      this.animateQuestion = true;
+      this.currentQuestion++;
+    }, 1000);
+
     if (this.currentQuestion >= this.quiz.questions.length) {
       this.router.navigateByUrl('/quiz_score', { state: { quiz: this.quiz } });
-    } else {
-      this.animateQuestion = false;
-      setTimeout(() => {
-        this.animateQuestion = true;
-      }, 1000);
     }
   }
 }
