@@ -4,6 +4,8 @@ import { SessionService } from '../session.service'
 import { ActivatedRoute } from "@angular/router";
 import { BackendService } from '../backend.service';
 import { Router } from "@angular/router";
+import { environment } from '../../environments/environment';
+const env = environment;
 
 @Component({
   selector: 'app-quiz-waiting',
@@ -32,6 +34,10 @@ export class QuizWaitingComponent implements OnInit {
     private sessionService: SessionService,
     private route: ActivatedRoute,
     private _router: Router) { }
+
+  getInvitationURL() {
+    return `${env.frontEndEndpoint}quiz_waiting?invitationCode=${this.invitationCode}&quiz=${this.quizId}`
+  }
 
   random6alphanum() {
     return (Math.random().toString(36) + '00000000000000000').slice(2, 6 + 2)

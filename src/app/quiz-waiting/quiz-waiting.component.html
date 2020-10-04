@@ -4,15 +4,15 @@
         <h2>PARTICIPANTS</h2>
         <div class="black-background">
             <ng-template [ngIf]="participants.length !== 0" [ngIfElse]="participantsLoading">
-              <div *ngFor="let participant of participants" class="participant">
-                <div class="tempImg"></div>
-                <i *ngIf="participant.isReady; else elseBlock" class="material-icons">check_box</i>
-                <ng-template #elseBlock>
-                  <i class="material-icons">check_box_outline_blank</i>
-                </ng-template>
-                <h4 class="one-line-text-trim" title="{{participant.name}}">
-                  {{participant.name}}</h4>
-              </div>
+                <div *ngFor="let participant of participants" class="participant">
+                    <div class="tempImg"></div>
+                    <i *ngIf="participant.isReady; else elseBlock" class="material-icons">check_box</i>
+                    <ng-template #elseBlock>
+                        <i class="material-icons">check_box_outline_blank</i>
+                    </ng-template>
+                    <h4 class="one-line-text-trim" title="{{participant.name}}">
+                        {{participant.name}}</h4>
+                </div>
             </ng-template>
             <ng-template #participantsLoading>
                 <div class="participant">
@@ -27,46 +27,45 @@
                     {{invitationCode}}
                 </span>
                 <div title="Copy Invitation URL" class="copy-inv-icon">
-                    <span class="material-icons">content_copy</span>
+                    <span class="material-icons" [cdkCopyToClipboard]="getInvitationURL()">content_copy</span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="info-area">
+    <div class=" info-area ">
         <h2>QUIZ INFO</h2>
-        <div class="info-background black-background">
-            <ng-template [ngIf]="quiz" [ngIfElse]="quizLoading">
-                <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+        <div class="info-background black-background ">
+            <ng-template [ngIf]="quiz " [ngIfElse]="quizLoading ">
+                <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg " alt="Quiz image ">
                 <h3>{{quiz.name}}</h3>
-                <p class="description">{{quiz.description}}</p>
-                <p class="genres">{{quiz.genres.join(', ')}}</p>
-                <div class="extra-details">
-                    <p title="{{quiz.author}}"><i class="material-icons">create</i>{{quiz.author}}</p>
-                    <p title="Created On"><i class="material-icons">calendar_today</i> {{quiz.createdOn.substring(0, 10)}}</p>
-                    <p title="Number Of Questions"><span class="hash"> # </span> Questions <span class="stat-highlight">{{quiz.questions.length}}</span></p>
-                    <p title="Times Answered"><span class="hash"> # </span> Answers <span class="stat-highlight">{{quiz.timesAnswered}}</span></p>
+                <p class="description ">{{quiz.description}}</p>
+                <p class="genres ">{{quiz.genres.join(', ')}}</p>
+                <div class="extra-details ">
+                    <p title="{{quiz.author}} "><i class="material-icons ">create</i>{{quiz.author}}</p>
+                    <p title="Created On "><i class="material-icons ">calendar_today</i> {{quiz.createdOn.substring(0, 10)}}</p>
+                    <p title="Number Of Questions "><span class="hash "> # </span> Questions <span class="stat-highlight ">{{quiz.questions.length}}</span></p>
+                    <p title="Times Answered "><span class="hash "> # </span> Answers <span class="stat-highlight ">{{quiz.timesAnswered}}</span></p>
                 </div>
-                <a class="start-button" (click)="toggleReady()"
-                  [style.color]="thisParticipant.isReady ? 'dimgray' : ''">
+                <a class="start-button " (click)="toggleReady() " [style.color]="thisParticipant.isReady ? 'dimgray' : '' ">
                   {{thisParticipant.isReady ?
                     (isCountdownShown ? 'STARTING...' : 'WAITING FOR OTHERS.. (click to un-ready)')
                     : 'READY'}}
                 </a>
             </ng-template>
             <ng-template #quizLoading>
-                <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg" alt="Quiz image">
+                <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg " alt="Quiz image ">
                 <h3>Loading Quiz...</h3>
             </ng-template>
         </div>
     </div>
-    <div class="chat-area">
+    <div class="chat-area ">
         <h2>CHAT</h2>
-        <div class="black-background">
-            <div class="tempChat"></div>
+        <div class="black-background ">
+            <div class="tempChat "></div>
         </div>
     </div>
 </div>
-<div [style.display]="isCountdownShown ? 'block':'none'" class="black-background countdown">
-  <span class="starting-in">Starting in..</span>
-  <span [style.animation]="isCountdownTimeShown ? '':'none'" class="countdown-time">{{countdown}}</span>
+<div [style.display]="isCountdownShown ? 'block': 'none' " class="black-background countdown ">
+    <span class="starting-in ">Starting in..</span>
+    <span [style.animation]="isCountdownTimeShown ? '': 'none' " class="countdown-time ">{{countdown}}</span>
 </div>
