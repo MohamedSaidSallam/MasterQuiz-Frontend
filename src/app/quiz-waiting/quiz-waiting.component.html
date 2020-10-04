@@ -26,8 +26,8 @@
                 <span class="inv-code-text">
                     {{invitationCode}}
                 </span>
-                <div title="Copy Invitation URL" class="copy-inv-icon">
-                    <span class="material-icons" [cdkCopyToClipboard]="getInvitationURL()">content_copy</span>
+                <div class="copy-inv-icon">
+                    <span class="material-icons" #tooltip="matTooltip" (mouseleave)="resetCopyTooltip()" (click)="changeCopyTooltip()" [cdkCopyToClipboard]="getInvitationURL()" [matTooltip]="copyTooltipValue" matTooltipPosition="below">content_copy</span>
                 </div>
             </div>
         </div>

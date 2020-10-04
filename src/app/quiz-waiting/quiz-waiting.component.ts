@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewChild} from '@angular/core';
 import { Participant } from '../model/Participant';
 import { SessionService } from '../session.service'
 import { ActivatedRoute } from "@angular/router";
 import { BackendService } from '../backend.service';
 import { Router } from "@angular/router";
+import { MatTooltip } from '@angular/material/tooltip';
 import { environment } from '../../environments/environment';
 const env = environment;
 
@@ -20,10 +22,12 @@ export class QuizWaitingComponent implements OnInit {
   invitationCode: string;
   messages: string[] = [];
 
+  @ViewChild('tooltip') tooltip: MatTooltip;
+
   // private sessionService: SessionService;
   thisParticipant: Participant = null;
   participants: Participant[] = [];
-
+  copyTooltipValue: string = "Copy invitation to the clipboard";
   isCountdownShown = false;
   isCountdownTimeShown = true;
   countdownTimeouts: number[] = [];
@@ -34,6 +38,20 @@ export class QuizWaitingComponent implements OnInit {
     private sessionService: SessionService,
     private route: ActivatedRoute,
     private _router: Router) { }
+
+  changeCopyTooltip() {
+    this.tooltip.hide();
+    this.copyTooltipValue = "Copied";
+    this.tooltip.show(300);
+
+  }
+
+  resetCopyTooltip() {
+    this.tooltip.hide();
+    setTimeout(() => {
+      this.copyTooltipValue = "Copy invitation to the clipboard";
+    }, 300);
+  }
 
   getInvitationURL() {
     return `${env.frontEndEndpoint}quiz_waiting?invitationCode=${this.invitationCode}&quiz=${this.quizId}`
