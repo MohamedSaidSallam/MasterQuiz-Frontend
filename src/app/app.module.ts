@@ -13,6 +13,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuizScoreComponent } from './quiz-score/quiz-score.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 const API_ENDPOINT = 'https://masterquiz-backend.herokuapp.com/api/';
@@ -30,11 +31,13 @@ const config: SocketIoConfig = { url: 'https://masterquiz-backend.herokuapp.com/
     QuizScoreComponent
   ],
   imports: [
+    MatTooltipModule,
     ClipboardModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
