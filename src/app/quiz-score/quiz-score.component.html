@@ -4,7 +4,7 @@
     <table class="user-score">
         <tr>
             <td>Score: </td>
-            <td class="score-second-col stat-highlight"> {{participants[currentParticipantIndex].score}} </td>
+            <td class="score-second-col stat-highlight"> {{participantList[currentParticipantIndex].score}} </td>
         </tr>
         <tr>
             <td> Position: </td>
@@ -98,26 +98,26 @@
             <thead>
                 <tr>
                     <th class="first-column">Questions</th>
-                    <th *ngFor="let participant of participants" title="{{participant.name}}">
+                    <th *ngFor="let participant of participantList" title="{{participant.name}}">
                         <p class="one-line-text-trim">{{participant.name}}</p>
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <ng-template ngFor let-idQuestionsTuple [ngForOf]="questionEntries">
+                <ng-template ngFor let-question [ngForOf]="questions">
                     <tr>
-                        <th class="first-column table-question" title="{{idQuestionsTuple[1].title}}" (click)="showQuestion[idQuestionsTuple[0]]=!showQuestion[idQuestionsTuple[0]]">
+                        <th class="first-column table-question" title="{{question.title}}" (click)="question.showQuestion=!question.showQuestion">
                             <p class="one-line-text-trim">
-                                <span class="arrow">{{showQuestion[idQuestionsTuple[0]] ? "▼ " : "▶ "}}</span>{{idQuestionsTuple[1].title}}
+                                <span class="arrow">{{question.showQuestion ? "▼ " : "▶ "}}</span>{{question.title}}
                             </p>
                         </th>
-                        <td *ngFor="let participant of participants" [class]="true ? 'correct-answer' : 'wrong-answer'" title="Answer Time (Score)">1:23(1234)</td>
+                        <td *ngFor="let answer of question.answers" [class]="answer.isCorrect ? 'correct-answer' : 'wrong-answer'" title="Answer Time (Score)">{{answer.time}}({{answer.score}})</td>
                     </tr>
-                    <tr *ngFor="let choice of idQuestionsTuple[1].choices" [style.display]="showQuestion[idQuestionsTuple[0]] ? 'table-row': 'none'" class="choice-row">
+                    <tr *ngFor="let choice of question.choices" [style.display]="question.showQuestion ? 'table-row': 'none'" class="choice-row">
                         <th class="first-column" title="{{choice}}">
                             <p class="one-line-text-trim">{{choice}}</p>
                         </th>
-                        <td *ngFor="let participant of participants" [class]="tempRandomBoolean() ? 'correct-answer' : 'wrong-answer'">{{tempRandomBoolean() ? '•' : ''}}
+                        <td *ngFor="let answer of question.answers" [class]="answer.isCorrect ? 'correct-answer' : 'wrong-answer'">{{choice == answer.answer ? '•' : ''}}
                         </td>
                     </tr>
                 </ng-template>
@@ -125,7 +125,7 @@
             <tfoot>
                 <tr>
                     <th class="first-column">Total Score</th>
-                    <td *ngFor="let participant of participants" class="stat-highlight">{{participant.score}}</td>
+                    <td *ngFor="let participant of participantList" class="stat-highlight">{{participant.score}}</td>
                 </tr>
             </tfoot>
         </table>

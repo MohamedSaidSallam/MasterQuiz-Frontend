@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Location } from '@angular/common';
 import { Participant } from '../model/Participant'
+import { AnswerOfQuestion } from '../model/AnswerOfQuestion'
 import { SessionService } from '../session.service'
 
 @Component({
@@ -14,6 +15,7 @@ export class QuizComponent implements OnInit {
   participants: Participant[];
   thisParticipant: Participant;
   currentQuestion = 0;
+  allAnswers: object[] = [];
 
   constructor(private location: Location, private router: Router, private sessionService: SessionService) { }
 
@@ -44,7 +46,8 @@ export class QuizComponent implements OnInit {
 
   }
 
-  nextQuestion(answers): void {
+  nextQuestion(prevAnswers: AnswerOfQuestion[]): void {
+    this.allAnswers.push(prevAnswers);
 
     // todo show answers animation before this
 
@@ -55,7 +58,13 @@ export class QuizComponent implements OnInit {
     this.currentQuestion++;
 
     if (this.currentQuestion >= this.quiz.questions.length) {
-      this.router.navigateByUrl('/quiz_score', { state: { quiz: this.quiz } });
+      this.router.navigateByUrl('/quiz_score', { state: { 
+          quiz: this.quiz, 
+          answers: this.allAnswers,
+          participants: this.participants,
+          thisParticipant: this.thisParticipant
+        } 
+      });
     }
   }
 
