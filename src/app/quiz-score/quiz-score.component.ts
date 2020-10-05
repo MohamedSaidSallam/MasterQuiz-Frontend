@@ -13,12 +13,8 @@ export class QuizScoreComponent implements OnInit {
   participantList = [];
   thisParticipant: Participant;
   answers: any;
-  topThreeParticipants: IterableIterator<
-    [number, { name: string; score: number;}]
-  >;
-  remainingParticipants: IterableIterator<
-    [number, { name: string; score: number;}]
-  >;
+  topThreeParticipants: any[];
+  remainingParticipants: any[];
   showQuestion: boolean[];
   questions: any[];
   currentParticipantIndex: number;
@@ -63,11 +59,8 @@ export class QuizScoreComponent implements OnInit {
     this.currentParticipantIndex = this.participantList.findIndex(
       (item) => item.hash === this.thisParticipant.hash
     );
-    this.topThreeParticipants = this.participantList.slice(0, 3).entries();
-    this.remainingParticipants = this.participantList.slice(3).entries();
-
-    console.log(this.participantList);
-    console.log(this.questions);
+    this.topThreeParticipants = [...this.participantList.slice(0, 3).entries()];
+    this.remainingParticipants = [...this.participantList.slice(3).entries()];
   }
 
   getTrophyClass(index: number): string {

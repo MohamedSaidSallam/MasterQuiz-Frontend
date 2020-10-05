@@ -15,6 +15,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ParticipantsSideListComponent } from './participants-side-list/participants-side-list.component';
 
 const API_ENDPOINT = 'https://masterquiz-backend.herokuapp.com/api/';
 const config: SocketIoConfig = { url: 'https://masterquiz-backend.herokuapp.com/', options: {} };
@@ -28,7 +29,8 @@ const config: SocketIoConfig = { url: 'https://masterquiz-backend.herokuapp.com/
     QuizWaitingComponent,
     ErrorPageComponent,
     QuizComponent,
-    QuizScoreComponent
+    QuizScoreComponent,
+    ParticipantsSideListComponent
   ],
   imports: [
     MatTooltipModule,

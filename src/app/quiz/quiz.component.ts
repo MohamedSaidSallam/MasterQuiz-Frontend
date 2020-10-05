@@ -16,12 +16,13 @@ export class QuizComponent implements OnInit {
   thisParticipant: Participant;
   currentQuestion = 0;
   allAnswers: object[] = [];
+  animateQuestion = false;
 
   constructor(private location: Location, private router: Router, private sessionService: SessionService) { }
 
   ngOnInit(): void {
     this.quiz = this.location.getState()['quiz'];
-    this.participants = this.location.getState()['participants'];
+    this.participants = this.location.getState()['participants'] || [];
     this.thisParticipant = this.location.getState()['thisParticipant'];
     const sessionCode = this.location.getState()['sessionCode'];
     this.sessionService = new SessionService();
@@ -46,30 +47,36 @@ export class QuizComponent implements OnInit {
 
   }
 
+
+
   nextQuestion(prevAnswers: AnswerOfQuestion[]): void {
+    this.animateQuestion = true;
     this.allAnswers.push(prevAnswers);
+    
+    setTimeout(() => {
+      this.animateQuestion = false;
 
-    // todo show answers animation before this
+      this.currentQuestion++;
+      for (const participant of this.participants){
+        participant.answerLocked = false;
+      }
 
-    for (const participant of this.participants){
-      participant.answerLocked = false;
-    }
-
-    this.currentQuestion++;
-
-    if (this.currentQuestion >= this.quiz.questions.length) {
-      this.router.navigateByUrl('/quiz_score', { state: { 
+      if (this.currentQuestion >= this.quiz.questions.length) {
+        this.router.navigateByUrl('/quiz_score', { state: { 
           quiz: this.quiz, 
           answers: this.allAnswers,
           participants: this.participants,
           thisParticipant: this.thisParticipant
-        } 
-      });
-    }
+        }});
+      }
+    }, 1000);
   }
 
   
   submitAnswer(choice: string): void {
+    if (this.animateQuestion) {
+      return;
+    }
     this.sessionService.submitAnswer(choice);
     if (this.currentQuestion >= this.quiz.questions.length) {
       this.router.navigateByUrl('/quiz_score', { state: { quiz: this.quiz } });

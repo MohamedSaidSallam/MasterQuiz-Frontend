@@ -1,0 +1,24 @@
+@import "../../styles.scss";
+
+.participant {
+  @extend .transition-time;
+  @extend .default-border-radius;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.2em;
+  .tempImg {
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    background: pink;
+  }
+  h4 {
+    margin: 0;
+  }
+
+  &:hover {
+    background: rgba($color: color(accent), $alpha: 0.5);
+  }
+}
