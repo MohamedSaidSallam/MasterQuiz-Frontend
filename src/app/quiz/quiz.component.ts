@@ -14,7 +14,7 @@ export class QuizComponent implements OnInit {
   participants: Participant[];
   sessionService: SessionService;
   currentQuestion = 0;
-  animateQuestion = true;
+  animateQuestion = false;
 
   constructor(private location: Location, private router: Router) {}
 
@@ -29,9 +29,12 @@ export class QuizComponent implements OnInit {
   }
 
   nextQuestion(choice: string): void {
-    this.animateQuestion = false;
+    if (this.animateQuestion) {
+      return;
+    }
+    this.animateQuestion = true;
     setTimeout(() => {
-      this.animateQuestion = true;
+      this.animateQuestion = false;
       this.currentQuestion++;
     }, 1000);
 
