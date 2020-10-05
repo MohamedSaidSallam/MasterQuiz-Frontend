@@ -17,6 +17,7 @@ export class QuizComponent implements OnInit {
   currentQuestion = 0;
   allAnswers: object[] = [];
   animateQuestion = false;
+  selectedChoice = "";
 
   constructor(private location: Location, private router: Router, private sessionService: SessionService) { }
 
@@ -60,6 +61,7 @@ export class QuizComponent implements OnInit {
       for (const participant of this.participants){
         participant.answerLocked = false;
       }
+      this.selectedChoice = "";
 
       if (this.currentQuestion >= this.quiz.questions.length) {
         this.router.navigateByUrl('/quiz_score', { state: { 
@@ -74,6 +76,10 @@ export class QuizComponent implements OnInit {
 
   
   submitAnswer(choice: string): void {
+    if(this.selectedChoice){
+      return;
+    }
+    this.selectedChoice = choice;
     if (this.animateQuestion) {
       return;
     }

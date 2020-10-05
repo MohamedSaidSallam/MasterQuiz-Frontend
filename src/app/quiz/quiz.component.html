@@ -3,7 +3,7 @@
         <h1 class="one-line-text-trim page-header-entrance page-header-entrance">{{quiz.name}}</h1>
         <div class="questions-area black-background" [class]="animateQuestion ? 'page-section-exit' : 'animate-question-entrance'">
             <h2>{{quiz.questions[currentQuestion].title}}</h2>
-            <div *ngFor="let choice of quiz.questions[currentQuestion].choices" (click)="submitAnswer(choice)" class="choice">
+            <div *ngFor="let choice of quiz.questions[currentQuestion].choices" (click)="submitAnswer(choice)" [class]="selectedChoice === '' ? 'choice-hover-effect' : (selectedChoice === choice ? 'selected-choice': 'grayed-out-choice')" class="choice">
                 {{choice}}</div>
         </div>
     </ng-template>
