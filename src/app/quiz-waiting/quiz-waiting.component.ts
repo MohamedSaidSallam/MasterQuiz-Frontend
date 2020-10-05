@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewChild} from '@angular/core';
 import { Participant } from '../model/Participant';
 import { SessionService } from '../session.service'
 import { ActivatedRoute } from "@angular/router";
 import { BackendService } from '../backend.service';
 import { Router } from "@angular/router";
+import { MatTooltip } from '@angular/material/tooltip';
+import { environment } from '../../environments/environment';
+const env = environment;
 
 @Component({
   selector: 'app-quiz-waiting',
@@ -18,10 +22,12 @@ export class QuizWaitingComponent implements OnInit {
   invitationCode: string;
   messages: string[] = [];
 
-  private sessionService: SessionService;
+  @ViewChild('tooltip') tooltip: MatTooltip;
+
+  // private sessionService: SessionService;
   thisParticipant: Participant = null;
   participants: Participant[] = [];
-
+  copyTooltipValue: string = "Copy invitation to the clipboard";
   isCountdownShown = false;
   isCountdownTimeShown = true;
   countdownTimeouts: number[] = [];
@@ -29,8 +35,27 @@ export class QuizWaitingComponent implements OnInit {
   countdown = 5;
 
   constructor(private backendService: BackendService,
+    private sessionService: SessionService,
     private route: ActivatedRoute,
     private _router: Router) { }
+
+  changeCopyTooltip() {
+    this.tooltip.hide();
+    this.copyTooltipValue = "Copied";
+    this.tooltip.show(300);
+
+  }
+
+  resetCopyTooltip() {
+    this.tooltip.hide();
+    setTimeout(() => {
+      this.copyTooltipValue = "Copy invitation to the clipboard";
+    }, 300);
+  }
+
+  getInvitationURL() {
+    return `${env.frontEndEndpoint}quiz_waiting?invitationCode=${this.invitationCode}&quiz=${this.quizId}`
+  }
 
   random6alphanum() {
     return (Math.random().toString(36) + '00000000000000000').slice(2, 6 + 2)
@@ -51,8 +76,9 @@ export class QuizWaitingComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.invitationCode = params["invitationCode"];
       this.quizId = params["quiz"];
-      this.sessionService = new SessionService(this.invitationCode);
-      this.thisParticipant = { name: this.userName, isReady: false, hash: this.random6alphanum() }
+      this.sessionService.setRoomCode(this.invitationCode);
+      this.thisParticipant = { name: this.userName, isReady: false, 
+        hash: this.random6alphanum() , answerLocked: false}
       this.sessionService.addParticipant(this.thisParticipant);
       this.sessionService.sendQuizId(this.quizId);
       this.sessionService.foo();
@@ -129,6 +155,7 @@ export class QuizWaitingComponent implements OnInit {
           state: {
             quiz: this.quiz,
             participants: this.participants,
+            thisParticipant: this.thisParticipant,
             sessionCode: this.invitationCode
           }
         });

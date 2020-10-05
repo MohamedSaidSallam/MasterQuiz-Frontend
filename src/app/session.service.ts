@@ -14,41 +14,67 @@ export class SocketNameSpace extends Socket {
   providedIn: 'root',
 })
 export class SessionService {
-  room: SocketNameSpace;
+  static room: SocketNameSpace;
+  roomCode: string;
 
-  constructor(private code: string) {
-    this.room = new SocketNameSpace({ url: `${env.apiEndpoint}session/${code}` });
+  constructor() {
+  }
+
+  public setRoomCode(code: string ){
+    this.roomCode = code;
+    SessionService.room = new SocketNameSpace({ url: `${env.apiEndpoint}session/${code}` });
   }
 
   foo() {
-    this.room.emit('answer', 'hi ana msg');
+    SessionService.room.emit('answer', 'hi ana msg');
   }
 
   public sendMessage(message): void {
-    this.room.emit('msg', message);
+    SessionService.room.emit('msg', message);
   }
   public addParticipant(participant) {
-    this.room.emit('addParticipant', participant);
+    SessionService.room.emit('addParticipant', participant);
   }
 
   public sendQuizId(quizId) {
-    this.room.emit('sendQuizId', quizId);
+    SessionService.room.emit('sendQuizId', quizId);
   }
 
   public toggleReady(hash: string) {
-    this.room.emit('toggleReady', hash);
+    SessionService.room.emit('toggleReady', hash);
   }
+  
+  public submitAnswer(answer: string) {
+    SessionService.room.emit('answer', answer);
+  }
+
   public getMessages = () => {
     return Observable.create((observer) => {
-      this.room.on('msg', (message) => {
+      SessionService.room.on('msg', (message) => {
         observer.next(message);
       });
     });
   };
 
+  public answerLocked = () => {
+    return Observable.create((observer) => {
+      SessionService.room.on('answerLocked', (ParticipantHash) => {
+        observer.next(ParticipantHash);
+      });
+    });
+  }
+
+  public allAnswered = () => {
+    return Observable.create((observer) => {
+      SessionService.room.on('allAnswered', (answers) => {
+        observer.next(answers);
+      });
+    });
+  }
+
   public participantAdded = () => {
     return Observable.create((observer) => {
-      this.room.on('participantAdded', (participant) => {
+      SessionService.room.on('participantAdded', (participant) => {
         observer.next(participant);
       });
     });
@@ -56,7 +82,7 @@ export class SessionService {
 
   public oldParticipants = () => {
     return Observable.create((observer) => {
-      this.room.on('oldParticipants', (participants) => {
+      SessionService.room.on('oldParticipants', (participants) => {
         observer.next(participants);
       });
     });
@@ -64,7 +90,7 @@ export class SessionService {
 
   public readyToggled = () => {
     return Observable.create((observer) => {
-      this.room.on('toggleReady', (hash) => {
+      SessionService.room.on('toggleReady', (hash) => {
         observer.next(hash);
       });
     });
@@ -72,7 +98,7 @@ export class SessionService {
 
   public quizCountdownStarted = () => {
     return Observable.create((observer) => {
-      this.room.on('startQuizCountdown', () => {
+      SessionService.room.on('startQuizCountdown', () => {
         observer.next();
       });
     });
@@ -80,7 +106,7 @@ export class SessionService {
 
   public quizCountdownStopped = () => {
     return Observable.create((observer) => {
-      this.room.on('cancelQuizCountdown', () => {
+      SessionService.room.on('cancelQuizCountdown', () => {
         observer.next();
       });
     });
@@ -88,7 +114,7 @@ export class SessionService {
 
   public quizStarted = () => {
     return Observable.create((observer) => {
-      this.room.on('startQuiz', () => {
+      SessionService.room.on('startQuiz', () => {
         observer.next();
       });
     });
