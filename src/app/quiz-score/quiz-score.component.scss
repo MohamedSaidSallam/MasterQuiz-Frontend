@@ -179,6 +179,10 @@ $section-entrance-animation-delay-increment: 0.5s;
 
   margin: 1em 0;
 
+  details[open] summary ~ * {
+    animation: full-details-content-entrance 0.5s forwards ease;
+  }
+
   summary {
     outline: none;
 
@@ -192,6 +196,18 @@ $section-entrance-animation-delay-increment: 0.5s;
     }
   }
 }
+
+@keyframes full-details-content-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(-0.8em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 $full-details-table-color: #2b2b2b;
 
 .full-details-table {
