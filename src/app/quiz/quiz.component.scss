@@ -59,7 +59,8 @@
   width: 0.65em;
 }
 
-.participants-list::-webkit-scrollbar-track, .participants-list::-webkit-scrollbar-thumb  {
+.participants-list::-webkit-scrollbar-track,
+.participants-list::-webkit-scrollbar-thumb {
   @extend .default-border-radius;
   background: rgba($color: #000000, $alpha: 0.3);
 }
