@@ -12,6 +12,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizScoreComponent } from './quiz-score/quiz-score.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ParticipantsSideListComponent } from './participants-side-list/participants-side-list.component';
 
 const API_ENDPOINT = 'https://masterquiz-backend.herokuapp.com/api/';
 const config: SocketIoConfig = { url: 'https://masterquiz-backend.herokuapp.com/', options: {} };
@@ -25,7 +26,8 @@ const config: SocketIoConfig = { url: 'https://masterquiz-backend.herokuapp.com/
     QuizWaitingComponent,
     ErrorPageComponent,
     QuizComponent,
-    QuizScoreComponent
+    QuizScoreComponent,
+    ParticipantsSideListComponent
   ],
   imports: [
     BrowserModule,
