@@ -54,7 +54,7 @@ export class QuizWaitingComponent implements OnInit {
   }
 
   getInvitationURL() {
-    return `${env.frontEndEndpoint}quiz_waiting?invitationCode=${this.invitationCode}&quiz=${this.quizId}`
+    return this.invitationCode;
   }
 
   random6alphanum() {
