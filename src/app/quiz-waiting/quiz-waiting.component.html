@@ -31,7 +31,7 @@
                 </div>
                 <a class="start-button " (click)="toggleReady() " [style.color]="thisParticipant.isReady ? 'dimgray' : '' ">
                   {{thisParticipant.isReady ?
-                    (isCountdownShown ? 'STARTING...' : 'WAITING FOR OTHERS.. (click to un-ready)')
+                    (isCountdownShown ? 'STARTING... (click to stop)' : 'WAITING FOR OTHERS.. (click to un-ready)')
                     : 'READY'}}
                 </a>
             </ng-template>
