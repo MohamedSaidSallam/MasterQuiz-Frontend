@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Location } from '@angular/common';
 import { Participant } from '../model/Participant'
 import { AnswerOfQuestion } from '../model/AnswerOfQuestion'
 import { SessionService } from '../session.service'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.scss'],
 })
-export class QuizComponent implements OnInit {
+export class QuizComponent implements OnInit, OnDestroy {
   quiz: any;
   participants: Participant[];
   thisParticipant: Participant;
@@ -18,6 +19,7 @@ export class QuizComponent implements OnInit {
   allAnswers: object[] = [];
   animateQuestion = false;
   selectedChoice = "";
+  subscriptions: Subscription[] = [];
 
   constructor(private location: Location, private router: Router, private sessionService: SessionService) { }
 
@@ -25,26 +27,27 @@ export class QuizComponent implements OnInit {
     this.quiz = this.location.getState()['quiz'];
     this.participants = this.location.getState()['participants'] || [];
     this.thisParticipant = this.location.getState()['thisParticipant'];
-    const sessionCode = this.location.getState()['sessionCode'];
-    this.sessionService = new SessionService();
     if (this.quiz === undefined) {
       this.router.navigateByUrl('/PageNotFound');
     }
 
-    this.sessionService
+    this.subscriptions.push(this.sessionService
       .answerLocked()
       .subscribe((participantHash: string) => {
-        // todo UI
+        console.log('someone answered yasta');
         const participant = this.participants
-          .find(participant => participant.hash === participantHash);
+        .find(participant => participant.hash === participantHash);
+        console.log(participant.hash);
+        console.log(participantHash);
         participant.answerLocked = true;
-      });
+      }));
 
-      this.sessionService
+    this.subscriptions.push(this.sessionService
       .allAnswered()
       .subscribe((answers) => {
-        this.nextQuestion(answers);
-      });
+      console.log(answers);
+      this.nextQuestion(answers);
+    }));
 
   }
 
@@ -74,9 +77,8 @@ export class QuizComponent implements OnInit {
     }, 1000);
   }
 
-  
   submitAnswer(choice: string): void {
-    if(this.selectedChoice){
+    if (this.selectedChoice){
       return;
     }
     this.selectedChoice = choice;
@@ -84,11 +86,11 @@ export class QuizComponent implements OnInit {
       return;
     }
     this.sessionService.submitAnswer(choice);
-    if (this.currentQuestion >= this.quiz.questions.length) {
-      this.router.navigateByUrl('/quiz_score', { state: { quiz: this.quiz } });
-    }
   }
 
-  
-
+  ngOnDestroy(): void {
+    for (const subscription of this.subscriptions){
+      subscription.unsubscribe();
+    }
+  }
 }
