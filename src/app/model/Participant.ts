@@ -1,6 +1,6 @@
 export interface Participant {
-  name: string,
-  isReady: boolean,
-  hash : string,
-  answerLocked: boolean
+  name: string;
+  isReady: boolean;
+  hash: string;
+  answerLocked: boolean;
 }
