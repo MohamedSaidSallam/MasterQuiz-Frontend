@@ -18,6 +18,7 @@ export class QuizComponent implements OnInit {
   allAnswers: object[] = [];
   animateQuestion = false;
   selectedChoice = "";
+  isTimerShown = true;
 
   constructor(private location: Location, private router: Router, private sessionService: SessionService) { }
 
@@ -52,10 +53,12 @@ export class QuizComponent implements OnInit {
 
   nextQuestion(prevAnswers: AnswerOfQuestion[]): void {
     this.animateQuestion = true;
+    this.isTimerShown = false;
     this.allAnswers.push(prevAnswers);
     
     setTimeout(() => {
       this.animateQuestion = false;
+      this.isTimerShown = true;
 
       this.currentQuestion++;
       for (const participant of this.participants){

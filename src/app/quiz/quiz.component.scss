@@ -66,6 +66,9 @@
 }
 
 
+$timer-animation-delay: 0.5s;
+$timer-total-time: 30s;
+
 .timer, .timer-background {
     @extend .default-border-radius;
 
@@ -91,8 +94,10 @@
 
     height: 1.9vh;
 
-    animation: pulse-animation 2s ease infinite forwards,
-    question-countdown-animation 30s linear forwards;
+    background: color(green);
+
+    animation: pulse-animation 2s ease infinite forwards $timer-animation-delay,
+    question-countdown-animation ($timer-total-time - $timer-animation-delay) linear forwards $timer-animation-delay;
 }
 
 @keyframes pulse-animation {
@@ -101,9 +106,6 @@
     }
 }
 @keyframes question-countdown-animation {
-    0%{
-        background: color(green);
-    }
     50%{
         background: color(blue);
     }

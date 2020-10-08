@@ -12,5 +12,5 @@
 <app-participants-side-list [participants]="participants" [showCheckbox]="false" class="participants-list"></app-participants-side-list>
 
 
-<div class="timer-background"></div>
-<div class="timer"></div>
+<div class="timer-background" [style.display]="isTimerShown ? '' : 'none'"></div>
+<div class="timer" [style.display]="isTimerShown ? '' : 'none'"></div>
