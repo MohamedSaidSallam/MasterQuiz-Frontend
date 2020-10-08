@@ -10,6 +10,9 @@
     opacity: 0;
     padding-left: 1em;
     padding-right: 1.5em;
+
+    margin-bottom: 2em;
+
     h2 {
         font-size: 1.8rem;
         margin: 0.5em 0;
@@ -37,7 +40,7 @@
         }
     }
     .grayed-out-choice {
-        opacity: 70%;
+        opacity: 0.7;
     }
 }
 
@@ -60,4 +63,55 @@
 .participants-list::-webkit-scrollbar-thumb {
     @extend .default-border-radius;
     background: rgba($color: #000000, $alpha: 0.3);
+}
+
+
+.timer, .timer-background {
+    @extend .default-border-radius;
+
+    position: fixed;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 70vw;
+}
+.timer-background {
+    opacity: 0.3;
+
+    height: 2vh;
+
+    background: black;
+
+    box-shadow: 0 0.1em 1em -0.1em #000;
+}
+
+.timer {
+    opacity: 1;
+
+    height: 1.9vh;
+
+    animation: pulse-animation 2s ease infinite forwards,
+    question-countdown-animation 30s linear forwards;
+}
+
+@keyframes pulse-animation {
+    50%{
+        opacity: 0.8;
+    }
+}
+@keyframes question-countdown-animation {
+    0%{
+        background: color(green);
+    }
+    50%{
+        background: color(blue);
+    }
+    90%{
+        background: color(red);
+    }
+    100%{
+        background: color(red);
+        width: 0;
+    }
 }
