@@ -44,9 +44,9 @@ export class QuizScoreComponent implements OnInit {
 
   processAnswers(): void {
     let i = 0;
-    for(const questionAnswers of this.answers){
+    for (const questionAnswers of this.answers){
       this.questions[i].answers = questionAnswers;
-      for(const answer of questionAnswers){
+      for (const answer of questionAnswers){
         const participant = this.participantsMap.get(answer.hash);
         participant.score += answer.score;
         this.participantsMap.set(answer.hash, participant);
@@ -76,7 +76,6 @@ export class QuizScoreComponent implements OnInit {
     }
   }
   getPositionPostfix(index: number): string {
-    index = index + 1;
     if (index === 11 || index === 12 || index === 13) {
       return 'th';
     }

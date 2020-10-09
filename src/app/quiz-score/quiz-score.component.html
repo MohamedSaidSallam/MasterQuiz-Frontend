@@ -9,7 +9,7 @@
         <tr>
             <td> Position: </td>
             <td class="score-second-col">
-                {{currentParticipantIndex+1}}{{getPositionPostfix(currentParticipantIndex)}}
+                {{currentParticipantIndex+1}}{{getPositionPostfix(currentParticipantIndex + 1)}}
                 <span class="material-icons client-trophy" [class]="getTrophyClass(currentParticipantIndex)"> emoji_events
         </span>
             </td>
@@ -31,7 +31,7 @@
     <ul class="scores-remaining-list black-background">
         <li *ngFor="let idParticipantTuple of remainingParticipants" class="remaining-list-entry">
             <span class="remaining-participant-position">
-        {{idParticipantTuple[0] + 3}}{{getPositionPostfix(idParticipantTuple[0] + 3)}}.
+        {{idParticipantTuple[0] + 4}}{{getPositionPostfix(idParticipantTuple[0] + 4)}}.
       </span>
             <span class="one-line-text-trim remaining-participant-name" title="{{idParticipantTuple[1].name}}">{{idParticipantTuple[1].name}}</span>
             <span class="remaining-participant-score">
