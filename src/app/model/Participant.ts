@@ -3,4 +3,6 @@ export interface Participant {
   isReady: boolean;
   hash: string;
   answerLocked: boolean;
+  showingAnswers: boolean;
+  answeredCorrectly: boolean;
 }

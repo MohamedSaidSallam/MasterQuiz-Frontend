@@ -78,7 +78,7 @@ export class QuizWaitingComponent implements OnInit {
       this.quizId = params["quiz"];
       this.sessionService.setRoomCode(this.invitationCode);
       this.thisParticipant = { name: this.userName, isReady: false, 
-        hash: this.random6alphanum() , answerLocked: false}
+        hash: this.random6alphanum() , answerLocked: false, answeredCorrectly: false, showingAnswers: false}
       this.sessionService.addParticipant(this.thisParticipant);
       this.sessionService.sendQuizId(this.quizId);
       this.sessionService.foo();

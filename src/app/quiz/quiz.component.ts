@@ -66,6 +66,8 @@ export class QuizComponent implements OnInit, OnDestroy {
       this.currentQuestion++;
       for (const participant of this.participants){
         participant.answerLocked = false;
+        participant.answeredCorrectly = false;
+        participant.showingAnswers = false;
       }
       this.selectedChoice = "";
 
