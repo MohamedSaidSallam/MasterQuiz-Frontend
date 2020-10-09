@@ -1,6 +1,11 @@
 <div class="black-background participant-background">
     <ng-template [ngIf]="participants.length !== 0" [ngIfElse]="participantsLoading">
-        <div *ngFor="let participant of participants" class="participant" [class]="participant.answerLocked ? 'participant-answer-locked':''">
+        <div *ngFor="let participant of participants" class="participant" 
+        [ngClass]="{
+            'participant-answer-locked': participant.answerLocked,
+            'participant-answered-correctly': participant.showingAnswers && participant.answeredCorrectly,
+            'participant-answered-incorrectly': participant.showingAnswers && !participant.answeredCorrectly}">
+
             <div class="tempImg"></div>
             <ng-template [ngIf]="showCheckbox">
                 <i *ngIf="participant.isReady; else elseBlock" class="material-icons">check_box</i>

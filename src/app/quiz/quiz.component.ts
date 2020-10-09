@@ -18,8 +18,13 @@ export class QuizComponent implements OnInit, OnDestroy {
   currentQuestion = 0;
   allAnswers: object[] = [];
   animateQuestion = false;
-  selectedChoice = "";
+  selectedChoice = '';
   isTimerShown = true;
+  answerReview = {
+    isActive: false,
+    currentChoice: '',
+    isCurrentCorrect: false
+  };
   subscriptions: Subscription[] = [];
 
   constructor(private location: Location, private router: Router, private sessionService: SessionService) { }
@@ -54,11 +59,33 @@ export class QuizComponent implements OnInit, OnDestroy {
 
 
 
-  nextQuestion(prevAnswers: AnswerOfQuestion[]): void {
-    this.animateQuestion = true;
+  async nextQuestion(prevAnswers: AnswerOfQuestion[]): Promise<void> {
     this.isTimerShown = false;
+    this.answerReview.isActive = true;
     this.allAnswers.push(prevAnswers);
-    
+
+    for (const participant of this.participants){
+      participant.answerLocked = false;
+    }
+
+    const uniqueAnswers = new Map();
+    for (const ans of prevAnswers) {
+      if (uniqueAnswers.has(ans.answer)){
+        uniqueAnswers.get(ans.answer).hashes.push(ans.hash);
+      }
+      else {
+        uniqueAnswers.set(ans.answer, {
+          isCorrect: ans.isCorrect,
+            hashes: [ans.hash]
+          });
+      }
+    }
+
+    console.log(uniqueAnswers.entries());
+    await this.displayAnswers(uniqueAnswers.entries());
+    this.answerReview.isActive = false;
+    this.animateQuestion = true;
+
     setTimeout(() => {
       this.animateQuestion = false;
       this.isTimerShown = true;
@@ -69,17 +96,46 @@ export class QuizComponent implements OnInit, OnDestroy {
         participant.answeredCorrectly = false;
         participant.showingAnswers = false;
       }
-      this.selectedChoice = "";
+      this.selectedChoice = '';
 
       if (this.currentQuestion >= this.quiz.questions.length) {
-        this.router.navigateByUrl('/quiz_score', { state: { 
-          quiz: this.quiz, 
+        this.router.navigateByUrl('/quiz_score', { state: {
+          quiz: this.quiz,
           answers: this.allAnswers,
           participants: this.participants,
           thisParticipant: this.thisParticipant
         }});
       }
-    }, 1000);
+    }, 1200);
+  }
+
+  async displayAnswers(uniqueAnswersIterator): Promise<void> {
+    console.log(uniqueAnswersIterator);
+    for (const [answer, {isCorrect, hashes}] of uniqueAnswersIterator) {
+      this.answerReview.currentChoice = answer;
+      this.answerReview.isCurrentCorrect = isCorrect;
+
+      const filteredParticipants = this.participants.filter(
+        p => hashes.findIndex(hash => hash === p.hash) !== -1);
+
+      filteredParticipants.forEach((participant) => {
+        participant.showingAnswers = true;
+        participant.answeredCorrectly = isCorrect;
+      });
+
+      await this.wait(2700);
+      filteredParticipants.forEach((participant) => {
+        participant.showingAnswers = false;
+      });
+    }
+
+    return Promise.resolve();
+  }
+
+  async wait(ms): Promise<void> {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms);
+    });
   }
 
   submitAnswer(choice: string): void {
