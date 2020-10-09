@@ -35,3 +35,11 @@
 .participant-answer-locked {
   background: rgba($color: color(accent), $alpha: 0.5);
 }
+
+.participant-answered-correctly {
+  background: color(blue);
+}
+
+.participant-answered-incorrectly {
+  background: color(red);
+}

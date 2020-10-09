@@ -42,6 +42,13 @@
     .grayed-out-choice {
         opacity: 0.7;
     }
+    .participant-answered-correctly {
+        background: color(blue);
+    }
+    .participant-answered-incorrectly {
+        background: color(red);
+    }
+
 }
 
 .participants-list {
@@ -117,3 +124,4 @@ $timer-total-time: 30s;
         width: 0;
     }
 }
+
