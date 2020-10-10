@@ -43,7 +43,6 @@ td, span {
     opacity: 0;
 
     display: grid;
-    grid-template-columns: 5fr repeat(2, 3fr);
     column-gap: 1em;
 
     padding: 0;
@@ -67,6 +66,16 @@ td, span {
       }
     }
   }
+}
+
+.top-three-grid-template-one {
+  grid-template-columns: 5fr;
+}
+.top-three-grid-template-two {
+  grid-template-columns: 5fr 3fr;
+}
+.top-three-grid-template-three {
+  grid-template-columns: 5fr repeat(2, 3fr);
 }
 
 .trophy,

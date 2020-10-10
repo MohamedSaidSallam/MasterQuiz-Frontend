@@ -16,7 +16,7 @@
         </tr>
     </table>
 
-    <ul class="top-three-list">
+    <ul class="top-three-list" [class]="topThreeParticipants.length === 3 ? 'top-three-grid-template-three' : topThreeParticipants.length === 2 ? 'top-three-grid-template-two' : 'top-three-grid-template-one'">
         <li *ngFor="let idParticipantTuple of topThreeParticipants" class="black-background top-three">
             <span title="{{getTrophyTitle(idParticipantTuple[0])}}" class="material-icons trophy" [class]="getTrophyClass(idParticipantTuple[0])"> emoji_events
       </span>
