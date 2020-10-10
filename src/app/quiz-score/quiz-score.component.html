@@ -111,7 +111,7 @@
                                 <span class="arrow">{{question.showQuestion ? "▼ " : "▶ "}}</span>{{question.title}}
                             </p>
                         </th>
-                        <td *ngFor="let answer of question.answers" [class]="answer.isCorrect ? 'correct-answer' : 'wrong-answer'" title="Answer Time (Score)">{{answer.time}}({{answer.score}})</td>
+                        <td *ngFor="let answer of question.answers" [class]="answer.isCorrect ? 'correct-answer' : 'wrong-answer'" title="Answer Time (Score)">{{formatAnswerTime(answer.time)}}({{answer.score}})</td>
                     </tr>
                     <tr *ngFor="let choice of question.choices" [style.display]="question.showQuestion ? 'table-row': 'none'" class="choice-row">
                         <th class="first-column" title="{{choice}}">

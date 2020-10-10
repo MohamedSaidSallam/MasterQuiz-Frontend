@@ -107,4 +107,8 @@ export class QuizScoreComponent implements OnInit {
   showWIP(): void {
     alert('WIP');
   }
+
+  formatAnswerTime(answerTime: number): string {
+    return `${Math.floor(answerTime / 60).toString().padStart(2, '0')}:${(answerTime % 60).toString().padStart(2, '0')}`;
+  }
 }
