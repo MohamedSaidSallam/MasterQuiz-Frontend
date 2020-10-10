@@ -28,7 +28,7 @@
             </div>
         </li>
     </ul>
-    <ul class="scores-remaining-list black-background">
+    <ul *ngIf="remainingParticipants.length !== 0" class="scores-remaining-list black-background">
         <li *ngFor="let idParticipantTuple of remainingParticipants" class="remaining-list-entry">
             <span class="remaining-participant-position">
         {{idParticipantTuple[0] + 3}}{{getPositionPostfix(idParticipantTuple[0] + 3)}}.
