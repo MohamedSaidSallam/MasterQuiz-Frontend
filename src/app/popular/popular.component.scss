@@ -99,6 +99,7 @@
     gap: 0.5em;
     p {
       margin: 0;
+      cursor: default;
     }
     img {
       @extend .default-border-radius;
@@ -118,6 +119,11 @@
       font-weight: 700;
       font-size: 3rem;
       margin: 0.3em;
+
+      cursor: default;
+    }
+    p{
+      cursor: default;
     }
     .description {
       text-align: justify;

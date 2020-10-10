@@ -8,6 +8,10 @@ $section-entrance-animation-delay-increment: 0.5s;
   animation-duration: 0.65s;
 }
 
+td, span {
+  cursor: default;
+}
+
 .scores {
   text-align: center;
 
