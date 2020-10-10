@@ -2,7 +2,7 @@
 <div class="genres-grid">
   <ng-template [ngIf]="genres" [ngIfElse]="genresNotLoaded">
     <div *ngFor="let genre of genres" class="grid-item grid-item-hover" (click)="genreOnClick(genre)"><span
-        class="one-line-text-trim">{{genre}}</span></div>
+        class="one-line-text-trim" title="{{genre}}">{{genre}}</span></div>
   </ng-template>
   <ng-template #genresNotLoaded>
     <div class="grid-item loading-genre"><span>Loading Genres...</span></div>
