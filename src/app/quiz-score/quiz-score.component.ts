@@ -56,6 +56,15 @@ export class QuizScoreComponent implements OnInit {
 
     this.participantList = Array.from(this.participantsMap.values());
     this.participantList.sort((a, b) => b.score - a.score);
+    const sortedParticipantHashes = this.participantList.map(p => p.hash);
+
+    for (const question of this.questions){
+      question.answers.sort((a, b) => {
+        return sortedParticipantHashes.indexOf(a.hash)
+        - sortedParticipantHashes.indexOf(b.hash);
+      });
+    }
+
     this.currentParticipantIndex = this.participantList.findIndex(
       (item) => item.hash === this.thisParticipant.hash
     );
