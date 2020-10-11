@@ -9,7 +9,7 @@ import { AnswerOfQuestion } from '../model/AnswerOfQuestion'
 })
 export class QuizScoreComponent implements OnInit {
   quiz: any;
-  participantsMap : Map<string,any>;
+  participantsMap: Map<string, any>;
   participantList = [];
   thisParticipant: Participant;
   answers: any;
@@ -25,7 +25,7 @@ export class QuizScoreComponent implements OnInit {
     this.quiz = this.location.getState()['quiz'];
     const unprocessedParticipants = this.location.getState()['participants'];
     this.thisParticipant = this.location.getState()['thisParticipant'];
-    this.processParticipants(unprocessedParticipants); 
+    this.processParticipants(unprocessedParticipants);
     this.answers = this.location.getState()['answers'];
     this.questions = this.quiz.questions;
     for(const question of this.questions) {
@@ -56,6 +56,16 @@ export class QuizScoreComponent implements OnInit {
 
     this.participantList = Array.from(this.participantsMap.values());
     this.participantList.sort((a, b) => b.score - a.score);
+    this.sortAnswersAccordingToParticipantScore();
+
+    this.currentParticipantIndex = this.participantList.findIndex(
+      (item) => item.hash === this.thisParticipant.hash
+    );
+    this.topThreeParticipants = [...this.participantList.slice(0, 3).entries()];
+    this.remainingParticipants = [...this.participantList.slice(3).entries()];
+  }
+
+  sortAnswersAccordingToParticipantScore(): void  {
     const sortedParticipantHashes = this.participantList.map(p => p.hash);
 
     for (const question of this.questions){
@@ -64,12 +74,6 @@ export class QuizScoreComponent implements OnInit {
         - sortedParticipantHashes.indexOf(b.hash);
       });
     }
-
-    this.currentParticipantIndex = this.participantList.findIndex(
-      (item) => item.hash === this.thisParticipant.hash
-    );
-    this.topThreeParticipants = [...this.participantList.slice(0, 3).entries()];
-    this.remainingParticipants = [...this.participantList.slice(3).entries()];
   }
 
   getTrophyClass(index: number): string {
