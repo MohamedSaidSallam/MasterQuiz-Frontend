@@ -52,3 +52,13 @@
     <span class="starting-in ">Starting in..</span>
     <span [style.animation]="isCountdownTimeShown ? '': 'none' " class="countdown-time ">{{countdown}}</span>
 </div>
+
+<div class="floating-ready-button-area">
+  <p class="floating-ready-title">Are You Ready ?</p>
+  <span class="floating-ready-button" (click)="toggleReady() "
+    [style.color]="thisParticipant.isReady ? 'dimgray' : '' ">
+    {{thisParticipant.isReady ?
+          (isCountdownShown ? 'STARTING' : 'WAITING')
+          : 'READY'}}</span>
+  <p class="floating-ready-subtitle" [style.opacity]="thisParticipant.isReady ? '' : 0">click again to un-ready</p>
+</div>

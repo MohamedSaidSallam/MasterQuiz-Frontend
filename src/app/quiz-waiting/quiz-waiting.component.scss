@@ -182,3 +182,41 @@ h2 {
     opacity: 0.3;
   }
 }
+
+.floating-ready-button-area {
+  @extend .black-background;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  margin: 0 0 2.1em 0.75em;
+
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .floating-ready-button{
+    @extend .link-button;
+
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+    font-family: "Roboto Mono", sans-serif;
+    font-style: italic;
+  }
+
+  .floating-ready-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .floating-ready-subtitle{
+    font-size: 0.55rem;
+    font-weight: 400;
+  }
+
+}
