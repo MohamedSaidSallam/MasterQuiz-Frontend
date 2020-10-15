@@ -70,10 +70,7 @@ header {
 .logo {
   display: flex;
   align-items: center;
-  img {
-    width: 3em;
-    cursor: pointer;
-  }
+
   a {
     margin-left: 0.3em;
     color: white;
@@ -81,6 +78,15 @@ header {
     font-size: 2.3rem;
     text-decoration: none;
     text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    gap: 0.1em;
+
+    img {
+      width: 1.5em;
+      cursor: pointer;
+    }
   }
 
   .logo-quiz {
