@@ -19,7 +19,7 @@
         <h2>QUIZ INFO</h2>
         <div class="info-background black-background ">
             <ng-template [ngIf]="quiz " [ngIfElse]="quizLoading ">
-                <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg " alt="Quiz image ">
+                <img src="../../assets/images/placeholders/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg " alt="Quiz image ">
                 <h3>{{quiz.name}}</h3>
                 <p class="description ">{{quiz.description}}</p>
                 <p class="genres ">{{quiz.genres.join(', ')}}</p>
@@ -36,7 +36,7 @@
                 </a>
             </ng-template>
             <ng-template #quizLoading>
-                <img src="../../assets/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg " alt="Quiz image ">
+                <img src="../../assets/images/placeholders/olav-ahrens-rotne-jvBXiynINGE-unsplash.jpg " alt="Quiz image ">
                 <h3>Loading Quiz...</h3>
             </ng-template>
         </div>
