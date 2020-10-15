@@ -26,7 +26,7 @@ export class PopularComponent implements OnInit {
     this.backendService.getSessionCode().subscribe((data: any) => {
       const invitationCode = data;
       
-      this.router.navigate(['/quiz_waiting'], {queryParams: {invitationCode, quiz: this.selectedQuiz._id}});
+      this.router.navigate(['/quiz_lobby'], {queryParams: {invitationCode, quiz: this.selectedQuiz._id}});
     });
   }
 }

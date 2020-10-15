@@ -22,7 +22,7 @@ const routes: Routes = [
     component: GenresComponent,
   },
   {
-    path: 'quiz_waiting',
+    path: 'quiz_lobby',
     component: QuizWaitingComponent,
   },
   {
