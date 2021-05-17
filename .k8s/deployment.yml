@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: masterquiz-frontend-deployment
+  namespace: masterquiz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: masterquiz-frontend
+  template:
+    metadata:
+      labels:
+        app: masterquiz-frontend
+    spec:
+      containers:
+        - name: masterquiz-frontend
+          image: digitalphoenixx/masterquiz-frontend:latest
+          imagePullPolicy: "IfNotPresent"
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
